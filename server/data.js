@@ -1,11 +1,11 @@
 const messages = [
   {
-    id: 1,
+    message_id: 1,
     message: "example message",
     comments: [
-      { id: 1, comment: "example comment" },
-      { id: 2, comment: "example comment" },
-      { id: 3, comment: "example comment" },
+      { comment_id: 1, comment: "example comment" },
+      { comment_id: 2, comment: "example comment" },
+      { comment_id: 3, comment: "example comment" },
     ],
     react: {
       like: 1,
@@ -15,12 +15,12 @@ const messages = [
   },
 
   {
-    id: 2,
+    message_id: 2,
     message: "new example message",
     comments: [
-      { id: 1, comment: "new example comment" },
-      { id: 2, comment: "new example comment" },
-      { id: 3, comment: "new example comment" },
+      { comment_id: 1, comment: "new example comment" },
+      { comment_id: 2, comment: "new example comment" },
+      { comment_id: 3, comment: "new example comment" },
     ],
     react: {
       like: 0,

@@ -1,69 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Source+Code+Pro&display=swap");
 
-* {
+body {
+  background: #000;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
-}
-
-body {
-  background: #000;
+  height: 100%;
 }
 
 canvas {
   display: block;
+  width: fit-content;
+  height: fit-content;
 }
 
 .container {
-  display: inline-block;
-  height: 480px;
+  height: 100%;
+  width: 100%;
   position: relative;
+}
+
+.organizer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.text-container {
+  height: 100%;
 }
 
 p {
-  position: absolute;
+  font-size: 3rem;
+  text-align: center;
   color: #03a032;
-  font-size: 500%;
-  text-shadow: 5px 5px 5px black;
-  left: 35%;
-  top: 30%;
+  text-shadow: 2px 2px 2px black;
   font-family: "Source Code Pro", monospace;
 }
 
-.container2 {
-  position: absolute;
-}
-
-.img {
+.morpheus-fix {
   position: relative;
-  bottom: -357px;
-  left: 50%;
-  margin-left: 300px;
-  z-index: 1;
+  margin: auto;
+  max-width: 600px;
 }
 
-#redpill {
+.morph {
+  display: block;
+  margin: auto;
+  width: 100vw;
+  max-width: 600px;
+}
+
+.redpill {
   position: absolute;
-  bottom: -135px;
-  left: 50%;
-  margin-left: 375px;
+  top: 56%;
+  left: 15%;
   z-index: 2;
 }
 
-#bluepill {
+.bluepill {
   position: absolute;
-  bottom: -136px;
-  left: 50%;
-  margin-left: 680px;
+  top: 56%;
+  right: 15%;
   z-index: 2;
 }
 
-.thumbnail {
-  -webkit-transition: width 1s, height 1s;
-  transition: transform 0.5s ease;
-}
-
-.thumbnail:hover {
+.redpill:hover,
+.bluepill:hover {
   transform: scale(1.5);
+}
+
+@media only screen and (min-width: 500px) {
+  .redpill,
+  .bluepill {
+    width: 35px;
+  }
 }

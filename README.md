@@ -11,3 +11,4 @@
 # Index.js
 
 - Activated and styled canvas tag.
+- Added GIPHY API code 

@@ -44,7 +44,7 @@ setInterval(draw, 33);
 // Giphy API key
 let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 
-// linking Giphy API to DOM
+// linking Giphy API to DOM (for use when we've sorted out the message board)
 
 /* document.addEventListener("DOMContentLoaded", init);
 function init() {

@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 0;
+    height: 100%;
+    --icon-color: #5fe0a5;
+}
+
+canvas {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/* Sidebar */
+
+.hackerIcon {
+    width: 30px;
+    height: auto;
+}
+
+.sidebarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+    color: var(--icon-color);
+}
+
+.sidebarOption .material-icons {
+    padding: 20px
+}
+
+.sidebarOption h2 {
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.sidebarOption:hover {
+    background-color: rgb(24, 24, 24);
+    border-radius: 30px;
+    color: rgb(155, 255, 210);
+    transition: color 100ms ease-out;
+}
+
+.sidebarOption.active {
+    color: rgb(155, 255, 210);
+}
+
+.sidebar__hack {
+    width: 100%;
+    background-color: rgba(155, 255, 210, 0.6);
+    border: none;
+    color: rgb(0, 0, 0,);
+    font-weight: 900;
+    border-radius: 30px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.sidebar__hack:hover {
+    background-color: rgba(46, 46, 46, 0.6);
+    color: rgb(155, 255, 210);
+}
+
+.sidebar-container {
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+.sidebar {
+    border-right: 1px solid var(--icon-color);
+    flex: 0.2;
+    min-width: 250px;
+    /* margin-top: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Feed */
+

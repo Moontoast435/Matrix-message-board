@@ -21,6 +21,8 @@ canvas {
     width: 100%;
     position: absolute;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
 /* Sidebar */
@@ -65,7 +67,7 @@ canvas {
     width: 100%;
     background-color: rgba(155, 255, 210, 0.6);
     border: none;
-    color: rgb(0, 0, 0,);
+    color: rgb(0, 0, 0, );
     font-weight: 900;
     border-radius: 30px;
     height: 50px;
@@ -84,7 +86,7 @@ canvas {
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-    float: left;
+
 }
 
 .sidebar {
@@ -98,3 +100,36 @@ canvas {
 
 /* Feed */
 
+.feed-container {
+    display: flex;
+    height: 100vh;
+}
+
+.feed {
+    flex: 0.5;
+    border-right: 1px solid var(--icon-color);
+    min-width: fit-content;
+    overflow-y: scroll;
+}
+
+.feed__header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    color: rgb(155, 255, 210);
+}
+
+.feed__header h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.feed::-webkit-scrollbar {
+    display: none;
+}
+
+.feed {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

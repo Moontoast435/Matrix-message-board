@@ -304,6 +304,7 @@ canvas {
 
 .widgets__searchIcon {
     color: rgb(155, 255, 210);
+    margin-right: 5px;
 }
 
 .widgets__widgetContainer {

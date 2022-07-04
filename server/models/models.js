@@ -42,6 +42,8 @@ class Message {
     const newMsgId = messagesData.length + 1;
     const newMsg = new Message({
       message_id: newMsgId,
+      comments: [],
+      react: [{ like: 0 }, { dislike: 0 }, { heart: 0 }],
       ...message,
     });
     messagesData.push(newMsg);

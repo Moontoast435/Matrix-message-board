@@ -89,7 +89,10 @@ canvas {
     padding: 0 10px;
     overflow: hidden;
     flex: 0.2;
-    border-right: 1px solid var(--icon-color);
+    border-right: 1px solid rgba(155, 255, 210, .5);
+    border-bottom: 1px solid rgba(155, 255, 210, .5);
+    border-top: 1px solid rgba(155, 255, 210, .5);
+    border-left: 1px solid rgba(155, 255, 210, .5);
 }
 
 .sidebar {
@@ -108,12 +111,17 @@ canvas {
     overflow: hidden;
     flex: 0.5;
     justify-content: center;
-    border-right: 1px solid var(--icon-color);
+    border-right: 1px solid rgba(155, 255, 210, .5);
+    border-bottom: 1px solid rgba(155, 255, 210, .5);
+    border-top: 1px solid rgba(155, 255, 210, .5);
 }
 
 .feed {
     width: 100%;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .feed__header {
@@ -121,7 +129,7 @@ canvas {
     top: 0;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 15px 20px;
-    border: 1px solid var(--icon-color);
+    border-bottom: 1px solid rgba(155, 255, 210, .5);
     width: 100%;
 }
 
@@ -148,18 +156,62 @@ canvas {
 }
 
 .commentBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     padding-bottom: 10px;
-    border-bottom: 8px solid var(--icon-color);
+    border-bottom: 8px solid rgba(155, 255, 210, .5);
     padding-right: 10px
 }
 
 .commentBox form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.commentBox__input {
+    display: flex;
+    padding: 20px;
+}
+
+.commentBox__input input {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(155, 255, 210);
+}
+
+::placeholder {
+    color: rgb(78, 136, 111);
+}
+
+.commentBox__commentButton {
+    background-color: rgba(155, 255, 210, 0.6);
+    border: none;
+    color: rgb(0, 0, 0, );
+    font-weight: 900;
+    border-radius: 30px;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+.commentBox__commentButton:hover {
+    background-color: rgba(46, 46, 46, 0.6);
+    color: rgb(155, 255, 210);
 }
 
 /* Widgets */
 
 .widget-container {
     flex: 0.3;
+    border-right: 1px solid rgba(155, 255, 210, .5);
+    border-bottom: 1px solid rgba(155, 255, 210, .5);
+    border-top: 1px solid rgba(155, 255, 210, .5);
 }

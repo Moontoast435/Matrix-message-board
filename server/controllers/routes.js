@@ -4,6 +4,12 @@ const messages = require("../data");
 const bodyParser = require("body-parser");
 const Message = require("../models/models");
 
+router.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
 router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
@@ -31,7 +37,9 @@ router.get("/:id/reacts", (req, res) => {
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const newMsg = Message.create(data, data.message);
+  console.log(data);
+  const newMsg = Message.create(data);
+
   res.status(201).send(newMsg);
 });
 

@@ -27,7 +27,9 @@ class Message {
     const message = new Message(messageData);
     return message.comments;
   }
+
   //will display all the reacts of a selected message
+
   static findReacts(message_id) {
     const messageData = messagesData.filter(
       (message) => message.message_id === message_id
@@ -36,11 +38,10 @@ class Message {
     return message.react;
   }
 
-  static create(message, messageContent) {
+  static create(message) {
     const newMsgId = messagesData.length + 1;
     const newMsg = new Message({
       message_id: newMsgId,
-      messageContent,
       ...message,
     });
     messagesData.push(newMsg);

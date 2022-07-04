@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Source+Code+Pro&display=swap");
 
 body {
-  background: #000;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -53,6 +52,8 @@ p {
   top: 56%;
   left: 15%;
   z-index: 2;
+  -webkit-transition: width 1s, height 1s;
+  transition: transform 0.5s ease;
 }
 
 .bluepill {
@@ -60,6 +61,8 @@ p {
   top: 56%;
   right: 15%;
   z-index: 2;
+  -webkit-transition: width 1s, height 1s;
+  transition: transform 0.5s ease;
 }
 
 .redpill:hover,

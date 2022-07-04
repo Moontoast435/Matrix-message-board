@@ -12,8 +12,10 @@ class Message {
     return messages;
   }
 
-  static findById(id) {
-    const messageData = messagesData.filter((message) => message.id === id) [0];
+  static findById(message_id) {
+    const messageData = messagesData.filter(
+      (message) => message.message_id === message_id
+    )[0];
     const message = new Message(messageData);
     return message;
   }

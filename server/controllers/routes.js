@@ -22,8 +22,10 @@ router.post("/", (req, res) => {
 });
 
 router.delete("./:id", (req, res) => {
-  const msgId = parseInt(req.params.id);
+  const msgId = parseInt(req.params.message_id);
   msgToDestroy = Message.findById(msgId);
   msgToDestroy.destroy();
   res.status(204).send();
 });
+
+module.exports = router;

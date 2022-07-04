@@ -123,6 +123,8 @@ canvas {
     display: flex;
     flex-direction: column;
     align-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .feed__header {
@@ -142,11 +144,6 @@ canvas {
 
 .feed::-webkit-scrollbar {
     display: none;
-}
-
-.feed {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 /* Comment Box */
@@ -277,4 +274,49 @@ canvas {
     border-right: 1px solid rgba(155, 255, 210, .5);
     border-bottom: 1px solid rgba(155, 255, 210, .5);
     border-top: 1px solid rgba(155, 255, 210, .5);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.widget-container::-webkit-scrollbar {
+    display: none;
+}
+
+.widgets__input {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.widgets__input input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(155, 255, 210);
+    width: 400px;
+}
+
+.widgets__searchIcon {
+    color: rgb(155, 255, 210);
+}
+
+.widgets__widgetContainer {
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.widgets__widgetContainer h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgb(155, 255, 210);
+    margin-bottom: 10px;
 }

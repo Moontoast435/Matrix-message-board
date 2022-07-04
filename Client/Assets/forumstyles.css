@@ -106,6 +106,7 @@ canvas {
 /* Feed */
 
 .feed-container {
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     height: 100vh;
     overflow: hidden;
@@ -205,6 +206,33 @@ canvas {
 .commentBox__commentButton:hover {
     background-color: rgba(46, 46, 46, 0.6);
     color: rgb(155, 255, 210);
+}
+
+/* Posts */
+
+.post-container {
+    width: 100%;
+    color: var(--icon-color);
+    margin-top: 20px;
+}
+
+.post__avatar img {
+    border-radius: 50%;
+    height: 40px;
+}
+
+.post {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(155, 255, 210, .5);
+    padding: 15px 20px;
+    padding-bottom: 10px;
+}
+
+.post__body img {
+    width: 450px;
+    object-fit: contain;
+    border-radius: 20px;
 }
 
 /* Widgets */

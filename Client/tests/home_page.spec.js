@@ -29,6 +29,7 @@ describe("index.html", ()=> {
                 p = document.querySelector("p");
                 imgRedPill = document.querySelector(".redpill");
                 imgBluePill = document.querySelector(".bluepill");
+                morphimg=document.querySelector(".morph");
 
                 // heading = header.querySelector("h1");
             })
@@ -44,9 +45,18 @@ describe("index.html", ()=> {
                 expect(imgBluePill).toBeTruthy();
                 expect(imgBluePill.title).toEqual("Blue Pill");
             })
+
+            it("has an image of morph", ()=>{
+                expect(morphimg).toBeTruthy();
+                expect(morphimg.title).toEqual("Morpheus");
+
+            })
             
         })
 
 
     })
 })
+
+
+//so far all test passed, we will add any additional test if needed

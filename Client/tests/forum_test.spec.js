@@ -1,9 +1,10 @@
-
+/**
+* @jest-environment jsdom
+*/
 
 const { expect } = require("@jest/globals");
 const fs = require("fs");
 const path = require("path");
-const { describe } = require("yargs");
 const html = fs.readFileSync(path.resolve(__dirname, "../forum.html"), "utf8");
 
 
@@ -25,35 +26,39 @@ describe("forum.html",()=> {
             let sidebar;
             
             beforeEach(()=> {
-                sidebarOptionActive= document.querySelector(".sidebarOption active")
-                sidebarOption= document.querySelector(".sidebarOptions")
-
-
-
+                sidebarOptionActive= document.querySelector(".sidebarOption.active")
+                sidebarOption= document.querySelector("#sidebarOption")
             })
 
-            it("search", ()=>{
+            it("HOME", ()=>{
                 expect(sidebarOptionActive).toBeTruthy();
-                expect(sidebarOptionActive.title).toEqual("search")
-
+                expect(sidebarOptionActive.className).toEqual("sidebarOption active")
+                
             })
+
+            // it("Explore", ()=>{
+            //     expect(sidebarOption).toBeTruthy();
+            //     // expect(sidebarOption.className).toEqual("sidebarOption")
+            //     // expect(ghead.textContent).toEqual("Home")
+
+            // })
+
 
         })
 
-        describe("feed", ()=>{
-            beforeEach(()=>{
-                feedHeader=document.querySelector(".feed__header")
+        // describe("feed", ()=>{
+        //     beforeEach(()=>{
+        //         feedHeader=document.querySelector(".feed__header")
 
-            })
+        //     })
 
-            it("feed",()=>{
-                expect(feedHeader).toBeTruthy();
-                expect(feedHeader.text).toEqual("Home")
+        //     it("feed",()=>{
+        //         expect(feedHeader).toBeTruthy();
+        //         expect(feedHeader.text).toEqual("Home")
 
-            })
+        //     })
 
-        })
+        // })
 
-        describe("")
     })
 })

@@ -1,4 +1,3 @@
-// // Create New Posts
 const submitBtn = document.getElementById("commentBox__commentButton");
 
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
@@ -25,10 +24,7 @@ function postMessage(e) {
 
 let postContainer = document.getElementById("post-container");
 
-<<<<<<< HEAD
-=======
 // This functions will display all of the posts from the API to the forum page
->>>>>>> acab89f577848a9af5d47fadcf6a727f21b5dc75
 function getMessages() {
   fetch(API_URL)
     .then((resp) => resp.json()) //converting the fetch resp to json
@@ -99,10 +95,6 @@ function getMessages() {
       })
     );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> acab89f577848a9af5d47fadcf6a727f21b5dc75
 
 /*function appendResults(data) {
   data.forEach((r) => {

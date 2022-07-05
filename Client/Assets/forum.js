@@ -1,6 +1,6 @@
-// Create New Posts
+// // Create New Posts
 // const form = document.querySelector("form");
-// const API_URL = "";
+// const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
 // form.addEventListener("submitCommentBox", (event) => {
 //   event.preventDefault();
@@ -26,11 +26,34 @@
 
 // });
 
+// // Fetch Latest Posts
+// async function fetchLatestPosts() {
+//   try {
+//     const res = await fetch(API_URL);
+//     .then((res) => res.json())
+//       .then((data) => {
 
-// Giphy API key
+//         let output = ``
+
+//         data.forEach(function (post) {
+//           output += `
+          
+//           `;
+//       });
+//         document.getElementById("latestPostsOutput").textContent =
+//           output + `<br>`;
+//       });
+//   } catch (err) {
+//     console.log(`ERROR: ${err}`);
+//   }
+// }
+
+
+
+// // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 
-// linking Giphy API to DOM
+// // linking Giphy API to DOM
 
 // document.addEventListener("DOMContentLoaded", init);
 // function init() {

@@ -1,4 +1,3 @@
-// // Create New Posts
 const submitBtn = document.getElementById("commentBox__commentButton");
 
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";

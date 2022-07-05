@@ -363,12 +363,15 @@ canvas {
         display: none;
     }
     .feed-container {
-        flex: 0.7;
+        flex: 0.6;
         border-left: 1px solid rgb(3, 180, 155);
+    }
+    .widget-container {
+        flex: 0.4;
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 700px) {
     .sidebar-container {
         display: none;
     }

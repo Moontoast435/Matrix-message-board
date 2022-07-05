@@ -22,7 +22,11 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   const msgId = parseInt(req.params.id);
   const selectedMessage = Message.findById(msgId);
-  res.send(selectedMessage);
+  if (msgId > messages.length) {
+    res.status(404).send("Not Found");
+  } else {
+    res.send(selectedMessage);
+  }
 });
 
 router.get("/:id/comments", (req, res) => {

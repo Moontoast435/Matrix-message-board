@@ -65,7 +65,7 @@ router.post("/:id/reacts", (req, res) => {
   } else {
     selectReacts[2].heart += 1;
   }
-  console.log(key);
+
   res.send(selectReacts);
 });
 // DELETE methods
@@ -78,3 +78,4 @@ router.delete("/:id", (req, res) => {
 });
 
 module.exports = router;
+//

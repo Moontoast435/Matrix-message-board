@@ -254,6 +254,7 @@ canvas {
 .post__headerName {
     margin-right: 2px;
     color:rgb(155, 255, 210);
+    font-size: 15px;
 }
 
 .post__headerText h3 {
@@ -266,13 +267,13 @@ canvas {
 
 .post__headerSpecial {
     font-weight: 600;
-    font-size: 12px;
+    font-size: 13px;
     color:rgb(3,180,155);
 }
 
 .post__headerDescription {
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 12px;
     color: rgb(193, 240, 213);
 }
 

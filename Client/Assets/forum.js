@@ -21,17 +21,6 @@ function postMessage(e) {
   });
   window.location.reload(); //reloads the page so that the new message shows up
 }
-
-async function deletePost(url) {
-  await fetch(url, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
-  window.location.reload();
-}
-
 let postContainer = document.getElementById("post-container");
 
 // This functions will display all of the posts from the API to the forum page
@@ -109,6 +98,16 @@ function getMessages() {
         post.appendChild(deleteBtn);
       })
     );
+}
+
+async function deletePost(url) {
+  const resp = await fetch(url, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  window.location.reload();
 }
 
 /*function appendResults(data) {

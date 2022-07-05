@@ -102,7 +102,9 @@ function getMessages() {
         deleteBtn.classList = "delete_button";
         deleteBtn.textContent = "DELETE";
         deleteBtn.id = "delete_button" + msgId;
-        deleteBtn.addEventListener("click", deletePost(API_URL + "/" + msgId));
+        deleteBtn.addEventListener("click", () => {
+          deletePost(API_URL + "/" + msgId);
+        });
 
         post.appendChild(deleteBtn);
       })

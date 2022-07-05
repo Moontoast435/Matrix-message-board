@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="stylesheet" href="assets/forumstyles.css" />
     <script defer src="assets/forum.js"></script>
+    <script defer src="assets/forumCanvas.js"></script>
     <title>Matrix Media</title>
     <link rel="icon" type="image/x-icon" href="Assets/imgs/favicon1.png" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -25,54 +26,68 @@
                     <h2 id="sidebarH2_1">Home</h2>
                 </div>
                 <br>
-                <div id="sidebarButton1" class="sidebarOption">
-                    <span id="icon2" class="material-icons">
-                        search
-                    </span>
-                    <h2 id="sidebarH2_2">Explore</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton1" class="sidebarOption">
+                        <span id="icon2" class="material-icons">
+                            search
+                        </span>
+                        <h2 id="sidebarH2_2">Explore</h2>
+                    </div>
+                </a>
                 <br>
-                <div id="sidebarButton2" class="sidebarOption">
-                    <span id="icon3" class="material-icons">
-                        notifications
-                    </span>
-                    <h2 id="sidebarH2_3">Notifications</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton2" class="sidebarOption">
+                        <span id="icon3" class="material-icons">
+                            notifications
+                        </span>
+                        <h2 id="sidebarH2_3">Notifications</h2>
+                    </div>
+                </a>
                 <br>
-                <div id="sidebarButton3" class="sidebarOption">
-                    <span id="icon4" class="material-icons">
-                        mail
-                    </span>
-                    <h2 id="sidebarH2_4">Messages</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton3" class="sidebarOption">
+                        <span id="icon4" class="material-icons">
+                            mail
+                        </span>
+                        <h2 id="sidebarH2_4">Messages</h2>
+                    </div>
+                </a>
                 <br>
-                <div id="sidebarButton4" class="sidebarOption">
-                    <span id="icon5" class="material-icons">
-                        bookmarks
-                    </span>
-                    <h2 id="sidebarH2_5">Bookmarks</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton4" class="sidebarOption">
+                        <span id="icon5" class="material-icons">
+                            bookmarks
+                        </span>
+                        <h2 id="sidebarH2_5">Bookmarks</h2>
+                    </div>
+                </a>
                 <br>
-                <div id="sidebarButton5" class="sidebarOption">
-                    <span id="icon6" class="material-icons">
-                        list_alt
-                    </span>
-                    <h2 id="sidebarH2_6">Lists</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton5" class="sidebarOption">
+                        <span id="icon6" class="material-icons">
+                            list_alt
+                        </span>
+                        <h2 id="sidebarH2_6">Lists</h2>
+                    </div>
+                </a>
                 <br>
-                <div id="sidebarButton6" class="sidebarOption">
-                    <span id="icon7" class="material-icons">
-                        person
-                    </span>
-                    <h2 id="sidebarH2_7">Profile</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton6" class="sidebarOption">
+                        <span id="icon7" class="material-icons">
+                            person
+                        </span>
+                        <h2 id="sidebarH2_7">Profile</h2>
+                    </div>
+                </a>
                 <br>
-                <div id="sidebarButton7" class="sidebarOption">
-                    <span id="icon8" class="material-icons">
-                        more_horiz
-                    </span>
-                    <h2 id="sidebarH2_8">More</h2>
-                </div>
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton7" class="sidebarOption">
+                        <span id="icon8" class="material-icons">
+                            more_horiz
+                        </span>
+                        <h2 id="sidebarH2_8">More</h2>
+                    </div>
+                </a>
                 <button class="sidebar__hack">Hack The Mainframe</button>
             </div>
         </div>
@@ -88,9 +103,10 @@
                     <form id="commentBoxForm">
                         <div class="commentBox__input">
                             <img src="Assets/imgs/hackerprofile.png" alt="Profile Icon">
-                            <input id="feedInput" type="text" placeholder="*furious hacker typing noises*">
+                            <input name="postBodyContent" id="feedInput" type="text"
+                                placeholder="*furious hacker typing noises*" autocomplete="off" maxlength="500">
                         </div>
-                        <button class="commentBox__commentButton">Hack The Mainframe</button>
+                        <button name="submitCommentBox" class="commentBox__commentButton">Hack The Mainframe</button>
                     </form>
                 </div>
 
@@ -98,116 +114,31 @@
                 <div class="post-container">
                     <div class="post">
                         <div class="post__avatar">
-                            <img src="Assets/imgs/hackerprofile.png" alt="Profile Icon">
+                            <img name="profileIcon" src="Assets/imgs/hackerprofile.png" alt="Profile Icon">
                         </div>
 
                         <div class="post__body">
                             <!-- FILLER POSTS TEST (NOT FUNCTIONAL) START -->
                             <div class="post__header">
                                 <div class="post__headerText">
-                                    <h3>Jane Doe
-                                        <span class="post__headerSpecial">
-                                            <span class="material-icons post__badge">
-                                                check_circle
-                                            </span>@janedoe
+                                    <h3> <span class="post__headerName">Anonymous</span>
+                                        <span class="material-icons post__badge">
+                                            check_circle
                                         </span>
+                                        <span class="post__headerSpecial">@anonymous</span>
                                     </h3>
                                 </div>
                                 <div class="post__headerDescription">
-                                    <p>Test</p>
+                                    <p id="latestPostsOutput"></p>
                                 </div>
-                            </div>
-                            <img src="Assets/imgs/hacker.png" alt="hacker">
-                            <div class="post__footer">
-                                <span class="material-icons">
-                                    repeat
-                                </span>
-                                <span class="material-icons">
-                                    favorite
-                                </span>
-                                <span class="material-icons">
-                                    publish
-                                </span>
                             </div>
                             <!-- FILLER POSTS TEST (NOT FUNCTIONAL) END -->
                         </div>
                     </div>
-                    <div class="post">
-                        <div class="post__avatar">
-                            <img src="Assets/imgs/hackerprofile.png" alt="Profile Icon">
-                        </div>
 
-                        <div class="post__body">
-                            <!-- FILLER POSTS TEST (NOT FUNCTIONAL) START -->
-                            <div class="post__header">
-                                <div class="post__headerText">
-                                    <h3>Jane Doe
-                                        <span class="post__headerSpecial">
-                                            <span class="material-icons post__badge">
-                                                check_circle
-                                            </span>@janedoe
-                                        </span>
-                                    </h3>
-                                </div>
-                                <div class="post__headerDescription">
-                                    <p>Test</p>
-                                </div>
-                            </div>
-                            <img src="Assets/imgs/hacker.png" alt="hacker">
-                            <div class="post__footer">
-                                <span class="material-icons">
-                                    repeat
-                                </span>
-                                <span class="material-icons">
-                                    favorite
-                                </span>
-                                <span class="material-icons">
-                                    publish
-                                </span>
-                            </div>
-                            <!-- FILLER POSTS TEST (NOT FUNCTIONAL) END -->
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post__avatar">
-                            <img src="Assets/imgs/hackerprofile.png" alt="Profile Icon">
-                        </div>
-
-                        <div class="post__body">
-                            <!-- FILLER POSTS TEST (NOT FUNCTIONAL) START -->
-                            <div class="post__header">
-                                <div class="post__headerText">
-                                    <h3>Jane Doe
-                                        <span class="post__headerSpecial">
-                                            <span class="material-icons post__badge">
-                                                check_circle
-                                            </span>@janedoe
-                                        </span>
-                                    </h3>
-                                </div>
-                                <div class="post__headerDescription">
-                                    <p>Test</p>
-                                </div>
-                            </div>
-                            <img src="Assets/imgs/hacker.png" alt="hacker">
-                            <div class="post__footer">
-                                <span class="material-icons">
-                                    repeat
-                                </span>
-                                <span class="material-icons">
-                                    favorite
-                                </span>
-                                <span class="material-icons">
-                                    publish
-                                </span>
-                            </div>
-                            <!-- FILLER POSTS TEST (NOT FUNCTIONAL) END -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-
         <!-- Widgets -->
         <div class="widget-container">
             <div class="widgets">
@@ -215,7 +146,7 @@
                     <span class="material-icons widgets__searchIcon">
                         search
                     </span>
-                    <input id="widgetsInput" type="text" placeholder="Whats happening with the normies?">
+                    <input id="widgetsInput" type="text" placeholder="Whats happening with the normies?" autocomplete="off" maxlength="500">
                 </div>
                 <div class="widgets__widgetContainer">
                     <h2 id="widgetsH2">Ew Normies</h2>

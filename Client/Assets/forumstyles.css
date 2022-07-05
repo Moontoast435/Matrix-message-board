@@ -43,7 +43,7 @@ canvas {
 }
 
 .sidebarOption .material-icons {
-    padding: 20px
+    padding: 20px;
 }
 
 .sidebarOption h2 {
@@ -64,6 +64,10 @@ canvas {
     background-color: rgb(24, 24, 24);
 }
 
+.sidebarButtonLinks {
+    text-decoration: none;
+}
+
 .sidebar__hack {
     width: 100%;
     background-color: rgba(155, 255, 210, 0.6);
@@ -82,9 +86,8 @@ canvas {
 
 .sidebar-container {
     display: flex;
+    justify-content: flex-start;
     height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
     align-content: center;
     align-items: center;
     padding: 0 10px;
@@ -94,6 +97,7 @@ canvas {
     border-bottom: 1px solid rgba(155, 255, 210, .5);
     border-top: 1px solid rgba(155, 255, 210, .5);
     border-left: 1px solid rgba(155, 255, 210, .5);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .sidebar {
@@ -244,14 +248,21 @@ canvas {
     margin-right: 5px;
 }
 
-.post__headerSpecial {
-    font-weight: 600;
-    font-size: 12px;
+.post__headerName {
+    margin-right: 2px;
 }
 
 .post__headerText h3 {
+    display: flex;
+    align-items: center;
+    align-content: center;
     font-size: 15px;
     margin-bottom: 15px;
+}
+
+.post__headerSpecial {
+    font-weight: 600;
+    font-size: 12px;
 }
 
 .post__headerDescription {
@@ -260,7 +271,7 @@ canvas {
 }
 
 .post__body {
-    /* flex: 1; */
+    flex: 1;
     padding: 10px;
 }
 
@@ -271,7 +282,11 @@ canvas {
 /* Widgets */
 
 .widget-container {
+    display: flex;
+    justify-content: flex-end;
     flex: 0.3;
+    height: 100vh;
+    overflow: hidden;
     border-right: 1px solid rgba(155, 255, 210, .5);
     border-bottom: 1px solid rgba(155, 255, 210, .5);
     border-top: 1px solid rgba(155, 255, 210, .5);
@@ -283,6 +298,10 @@ canvas {
 
 .widget-container::-webkit-scrollbar {
     display: none;
+}
+
+.widgets {
+    width: 100%;
 }
 
 .widgets__input {

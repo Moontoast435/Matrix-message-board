@@ -219,7 +219,7 @@ canvas {
 
 /* Posts */
 
-.post-container {
+#post-container {
   width: 100%;
   margin-top: 20px;
 }

@@ -82,9 +82,8 @@ canvas {
 
 .sidebar-container {
     display: flex;
+    justify-content: flex-start;
     height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
     align-content: center;
     align-items: center;
     padding: 0 10px;
@@ -271,7 +270,11 @@ canvas {
 /* Widgets */
 
 .widget-container {
+    display: flex;
+    justify-content: flex-end;
     flex: 0.3;
+    height: 100vh;
+    overflow: hidden;
     border-right: 1px solid rgba(155, 255, 210, .5);
     border-bottom: 1px solid rgba(155, 255, 210, .5);
     border-top: 1px solid rgba(155, 255, 210, .5);
@@ -283,6 +286,10 @@ canvas {
 
 .widget-container::-webkit-scrollbar {
     display: none;
+}
+
+.widgets {
+    width: 100%;
 }
 
 .widgets__input {

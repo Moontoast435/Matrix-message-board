@@ -258,7 +258,7 @@ canvas {
     align-content: center;
     font-size: 15px;
     margin-bottom: 15px;
-    color:rgb(155, 255, 210)
+    color:rgb(155, 255, 210);
 }
 
 .post__headerSpecial {
@@ -269,6 +269,7 @@ canvas {
 .post__headerDescription {
     margin-bottom: 10px;
     font-size: 15px;
+    color:rgb(155, 255, 210);
 }
 
 .post__body {

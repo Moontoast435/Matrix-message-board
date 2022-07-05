@@ -1,6 +1,6 @@
 // // Create New Posts
 // const form = document.querySelector("form");
-// const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
+const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
 // form.addEventListener("submitCommentBox", (event) => {
 //   event.preventDefault();
@@ -47,9 +47,27 @@
 //     console.log(`ERROR: ${err}`);
 //   }
 // }
+let postResults = document.querySelector('#latestPostsOutput');
 
+async function getMessages() {
+   
+    const getMessage = await fetch(API_URL)
+    const data = await getMessage.json()
+    console.log(data);
+    appendResults(data);
+}
 
+function appendResults(data){
+    data.forEach(r => {        
+        postResults.append(makeMessage(r.message));
+    })
+}
 
+function makeMessage(msg){
+    const message = document.createElement("h3");
+    message.textContent = `${msg}`
+    return message;
+}
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 
@@ -78,3 +96,5 @@
 //         });
 //     });
 // }
+
+getMessages();

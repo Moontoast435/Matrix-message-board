@@ -50,7 +50,7 @@ const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
 let postContainer = document.getElementById("post-container");
 
- function getMessages() {
+function getMessages() {
   fetch(API_URL)
     .then((resp) => resp.json())
     .then((data) =>
@@ -104,7 +104,7 @@ let postContainer = document.getElementById("post-container");
         postResults.textContent = message;
       })
     );
-} 
+}
 
 
 /*function appendResults(data) {

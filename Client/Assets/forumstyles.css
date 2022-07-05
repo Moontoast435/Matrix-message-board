@@ -8,15 +8,9 @@
 }
 
 body {
-<<<<<<< HEAD
   border: 0;
   height: 100%;
   --icon-color: rgb(3, 180, 155);
-=======
-    border: 0;
-    height: 100%;
-    --icon-color: rgb(3, 180, 155);
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 canvas {
@@ -78,7 +72,6 @@ canvas {
 }
 
 .sidebar__hack {
-<<<<<<< HEAD
   width: 100%;
   background-color: rgba(3, 180, 155, 0.6);
   border: none;
@@ -87,16 +80,6 @@ canvas {
   border-radius: 30px;
   height: 50px;
   margin-top: 20px;
-=======
-    width: 100%;
-    background-color: rgba(3, 180, 155, 0.6);
-    border: none;
-    color: rgb(0, 0, 0, );
-    font-weight: 900;
-    border-radius: 30px;
-    height: 50px;
-    margin-top: 20px;
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .sidebar__hack:hover {
@@ -105,7 +88,6 @@ canvas {
 }
 
 .sidebar-container {
-<<<<<<< HEAD
   display: flex;
   justify-content: flex-start;
   height: 100vh;
@@ -119,24 +101,6 @@ canvas {
   border-top: 1px solid rgb(3, 180, 155);
   border-left: 1px solid rgb(3, 180, 155);
   background-color: rgba(0, 0, 0, 0.6);
-=======
-    display: flex;
-    justify-content: flex-start;
-    height: 100vh;
-    align-content: center;
-    align-items: center;
-    padding: 0 10px;
-    overflow: hidden;
-    flex: 0.2;
-    border-right: 1px solid rgb(3, 180, 155);
-    border-bottom: 1px solid rgb(3, 180, 155);
-    border-top: 1px solid rgb(3, 180, 155);
-    border-left: 1px solid rgb(3, 180, 155);
-    background-color: rgba(0, 0, 0, 0.6);
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .sidebar {
@@ -147,14 +111,9 @@ canvas {
   margin-right: auto;
 }
 
-.sidebar-container::-webkit-scrollbar {
-    display: none;
-}
-
 /* Feed */
 
 .feed-container {
-<<<<<<< HEAD
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   height: 100vh;
@@ -164,17 +123,6 @@ canvas {
   border-right: 1px solid rgb(3, 180, 155);
   border-bottom: 1px solid rgb(3, 180, 155);
   border-top: 1px solid rgb(3, 180, 155);
-=======
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-    flex: 0.5;
-    justify-content: center;
-    border-right: 1px solid rgb(3, 180, 155);
-    border-bottom: 1px solid rgb(3, 180, 155);
-    border-top: 1px solid rgb(3, 180, 155);
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .feed {
@@ -188,21 +136,12 @@ canvas {
 }
 
 .feed__header {
-<<<<<<< HEAD
   position: sticky;
   top: 0;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 15px 20px;
   border-bottom: 1px solid rgb(3, 180, 155);
   width: 100%;
-=======
-    position: sticky;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px 20px;
-    border-bottom: 1px solid rgb(3, 180, 155);
-    width: 100%;
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .feed__header h2 {
@@ -223,7 +162,6 @@ canvas {
 }
 
 .commentBox {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,15 +169,6 @@ canvas {
   padding-bottom: 10px;
   border-bottom: 8px solid rgb(3, 180, 155);
   padding-right: 10px;
-=======
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 10px;
-    border-bottom: 8px solid rgb(3, 180, 155);
-    padding-right: 10px
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .commentBox form {
@@ -264,7 +193,6 @@ canvas {
 }
 
 ::placeholder {
-<<<<<<< HEAD
   color: rgb(3, 180, 155);
 }
 
@@ -278,21 +206,6 @@ canvas {
   height: 40px;
   margin-top: 20px;
   margin-left: auto;
-=======
-    color: rgb(3, 180, 155);
-}
-
-.commentBox__commentButton {
-    background-color: rgba(3, 180, 155, 0.6);
-    border: none;
-    color: rgb(0, 0, 0, );
-    font-weight: 900;
-    border-radius: 30px;
-    width: 200px;
-    height: 40px;
-    margin-top: 20px;
-    margin-left: auto;
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .commentBox__commentButton:hover {
@@ -302,7 +215,7 @@ canvas {
 
 /* Posts */
 
-#post-container {
+.post-container {
   width: 100%;
   margin-top: 20px;
 }
@@ -313,19 +226,11 @@ canvas {
 }
 
 .post {
-<<<<<<< HEAD
   display: flex;
   align-items: flex-start;
   border-bottom: 1px solid rgb(3, 180, 155);
   padding: 15px 20px;
   padding-bottom: 10px;
-=======
-    display: flex;
-    align-items: flex-start;
-    border-bottom: 1px solid rgb(3, 180, 155);
-    padding: 15px 20px;
-    padding-bottom: 10px;
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .post__body img {
@@ -341,7 +246,6 @@ canvas {
 }
 
 .post__badge {
-<<<<<<< HEAD
   font-size: 14px !important;
   margin-right: 5px;
   color: rgb(112, 235, 166);
@@ -351,17 +255,6 @@ canvas {
   margin-right: 2px;
   color: rgb(155, 255, 210);
   font-size: 15px;
-=======
-    font-size: 14px !important;
-    margin-right: 5px;
-    color: rgb(112, 235, 166);
-}
-
-.post__headerName {
-    margin-right: 2px;
-    color: rgb(155, 255, 210);
-    font-size: 15px;
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .post__headerText h3 {
@@ -373,15 +266,9 @@ canvas {
 }
 
 .post__headerSpecial {
-<<<<<<< HEAD
   font-weight: 600;
   font-size: 13px;
   color: rgb(3, 180, 155);
-=======
-    font-weight: 600;
-    font-size: 13px;
-    color: rgb(3, 180, 155);
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .post__headerDescription {
@@ -399,14 +286,9 @@ canvas {
   padding: 20px;
 }
 
-.latestPostsOutput {
-  height: 20px;
-  color: white;
-}
 /* Widgets */
 
 .widget-container {
-<<<<<<< HEAD
   display: flex;
   justify-content: flex-end;
   flex: 0.3;
@@ -419,20 +301,6 @@ canvas {
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-color: rgba(0, 0, 0, 0.6);
-=======
-    display: flex;
-    justify-content: flex-end;
-    flex: 0.3;
-    height: 100vh;
-    overflow: hidden;
-    border-right: 1px solid rgb(3, 180, 155);
-    border-bottom: 1px solid rgb(3, 180, 155);
-    border-top: 1px solid rgb(3, 180, 155);
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    background-color: rgba(0, 0, 0, 0.6);
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .widget-container::-webkit-scrollbar {
@@ -444,7 +312,6 @@ canvas {
 }
 
 .widgets__input {
-<<<<<<< HEAD
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -454,17 +321,6 @@ canvas {
   margin-left: 20px;
   margin-right: 20px;
   border: 1px solid rgb(3, 180, 155);
-=======
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border: 1px solid rgb(3, 180, 155);
->>>>>>> aa8b6e7c676ff0b2bbdcb6f680b13290550754e7
 }
 
 .widgets__input input {
@@ -494,31 +350,3 @@ canvas {
   color: rgb(155, 255, 210);
   margin-bottom: 10px;
 }
-
-@media only screen and (max-width: 1100px) {
-    .sidebar-container {
-        display: none;
-    }
-    .feed-container {
-        flex: 0.6;
-        border-left: 1px solid rgb(3, 180, 155);
-    }
-    .widget-container {
-        flex: 0.4;
-    }
-  }
-
-  @media only screen and (max-width: 700px) {
-    .sidebar-container {
-        display: none;
-    }
-    
-    .widget-container {
-        display: none;
-    }
-
-    .feed-container {
-        flex: 1;
-        border-left: 1px solid rgb(3, 180, 155);
-    }
-  }

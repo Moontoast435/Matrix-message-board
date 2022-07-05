@@ -37,7 +37,7 @@ const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
 //         data.forEach(function (post) {
 //           output += `
-          
+
 //           `;
 //       });
 //         document.getElementById("latestPostsOutput").textContent =
@@ -47,27 +47,76 @@ const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 //     console.log(`ERROR: ${err}`);
 //   }
 // }
-let postResults = document.querySelector('#latestPostsOutput');
 
-async function getMessages() {
-   
-    const getMessage = await fetch(API_URL)
-    const data = await getMessage.json()
-    console.log(data);
-    appendResults(data);
+let postContainer = document.getElementById("post-container");
+
+function getMessages() {
+  fetch(API_URL)
+    .then((resp) => resp.json())
+    .then((data) =>
+      data.forEach((result) => {
+        console.log(result);
+        let post = document.createElement("div");
+        post.classList = "post";
+        let postAvatar = document.createElement("div");
+        postAvatar.classList = "post__avatar";
+        let profileImg = document.createElement("img");
+        profileImg.src = "assets/imgs/hackerprofile.png";
+        profileImg.alt = "Profile Icon";
+        postAvatar.appendChild(profileImg);
+        let postBody = document.createElement("div");
+        postBody.classList = "post__body";
+        post.appendChild(postAvatar);
+        post.appendChild(postBody);
+        let postHeader = document.createElement("div");
+        postHeader.classList = "post__header";
+        postBody.appendChild(postHeader);
+        let postHeaderText = document.createElement("div");
+        postHeaderText.classList = "post__headerText";
+
+        let h3 = document.createElement("h3");
+        let span1 = document.createElement("span");
+        span1.classList = "post__headerName";
+        span1.textContent = "Anonymous";
+        let span2 = document.createElement("span");
+        span2.classList = "material-icons post__badge";
+        span2.textContent = "check_circle";
+        let span3 = document.createElement("span");
+        span3.classList = "post__headerSpecial";
+        span3.textContent = "@anonymous";
+        h3.appendChild(span1);
+        h3.appendChild(span2);
+        h3.appendChild(span3);
+        postHeaderText.appendChild(h3);
+        let postHeaderDescription = document.createElement("div");
+        postHeaderDescription.classList = "post__headerDescription";
+        let postResults = document.createElement("p");
+        postResults.classList = "latestPostsOutput";
+        postHeaderDescription.appendChild(postResults);
+        postHeader.appendChild(postHeaderText);
+        postHeader.appendChild(postHeaderDescription);
+        postContainer.appendChild(post);
+        let msgId = result.message_id;
+        let message = result.message;
+        let reacts = result.react;
+        let comments = result.comments;
+        message.classList = msgId;
+        postResults.textContent = message;
+      })
+    );
 }
 
-function appendResults(data){
-    data.forEach(r => {        
-        postResults.append(makeMessage(r.message));
-    })
+/*function appendResults(data) {
+  data.forEach((r) => {
+    postResults.append(makeMessage(r.message));
+  });
 }
 
-function makeMessage(msg){
-    const message = document.createElement("h3");
-    message.textContent = `${msg}`
-    return message;
-}
+function makeMessage(msg) {
+  const message = document.createElement("h3");
+  message.textContent = `${msg}`;
+  return message;
+} */
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 

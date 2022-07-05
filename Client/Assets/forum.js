@@ -92,6 +92,16 @@ function getMessages() {
         let deleteBtn = document.createElement("button");
         deleteBtn.classList = "delete_button";
         deleteBtn.textContent = "DELETE";
+        deleteBtn.id = "delete_button" + msgId;
+        deleteBtn.addEventListener("click", () => {
+          fetch(API_URL + "/" + msgId, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+          });
+        });
+
         post.appendChild(deleteBtn);
       })
     );

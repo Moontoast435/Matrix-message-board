@@ -1,69 +1,53 @@
 // // Create New Posts
-// const form = document.querySelector("form");
+const submitBtn = document.getElementById("commentBox__commentButton");
+
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
-// form.addEventListener("submitCommentBox", (event) => {
-//   event.preventDefault();
-//   const formData = new FormData(form);
-//   const profilePicture = formData.get("profileIcon");
-//   const content = formData.get("postBodyContent");
+// Adding the event listener to the 'Hack the mainframe' button (the submit post button)
+submitBtn.addEventListener("click", (e) => {
+  postMessage(e);
+});
 
-//   const post = {
-//     profilePicture,
-//     content,
-//     emojiOne: 0,
-//     emojiTwo: 0,
-//     emojiThree: 0,
-//     comments: [],
-//   };
-//   fetch(API_URL, {
-//     method: "POST",
-//     body: JSON.stringify(post),
-//     headers {
-//     "content-type": "application/json",
-//   },
-//   });
-
-// });
-
-// // Fetch Latest Posts
-// async function fetchLatestPosts() {
-//   try {
-//     const res = await fetch(API_URL);
-//     .then((res) => res.json())
-//       .then((data) => {
-
-//         let output = ``
-
-//         data.forEach(function (post) {
-//           output += `
-
-//           `;
-//       });
-//         document.getElementById("latestPostsOutput").textContent =
-//           output + `<br>`;
-//       });
-//   } catch (err) {
-//     console.log(`ERROR: ${err}`);
-//   }
-// }
+function postMessage(e) {
+  e.preventDefault(); // prevents page reload before the function can be carried out
+  const commentBoxData = document.getElementById("feedInput").value; // targets the input box and takes its value to be stored in commentBoxData
+  fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+    },
+    body: new URLSearchParams({
+      message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
+    }),
+  });
+  window.location.reload(); //reloads the page so that the new message shows up
+}
 
 let postContainer = document.getElementById("post-container");
 
- function getMessages() {
+// This functions will display all of the posts from the API to the forum page
+function getMessages() {
   fetch(API_URL)
-    .then((resp) => resp.json())
+    .then((resp) => resp.json()) //converting the fetch resp to json
     .then((data) =>
       data.forEach((result) => {
-        console.log(result);
-        let post = document.createElement("div");
+        let msgId = result.message_id; // this will just assign the post an ID, could be useful for deleting or changing specific posts
+        let message = result.message; // transferring the message from the post to a variable
+        let reacts = result.react; // reacts and comments arent being used yet but stored those properties into variables for later
+        let comments = result.comments;
+        // the messages array has .forEach applied to it, which then will create a series of divs with classes to be appended to each other to make the 'post'
+
+        let post = document.createElement("div"); // post container
         post.classList = "post";
-        let postAvatar = document.createElement("div");
+        let postAvatar = document.createElement("div"); //div for the avatar
         postAvatar.classList = "post__avatar";
-        let profileImg = document.createElement("img");
-        profileImg.src = "assets/imgs/hackerprofile.png";
+        let profileImg = document.createElement("img"); // avatar image
+        profileImg.src = "assets/imgs/hackerprofile.png"; // avatar image
         profileImg.alt = "Profile Icon";
         postAvatar.appendChild(profileImg);
+
+        // making the post body and post header divs, for which the message text will be eventually added.
+
         let postBody = document.createElement("div");
         postBody.classList = "post__body";
         post.appendChild(postAvatar);
@@ -73,6 +57,8 @@ let postContainer = document.getElementById("post-container");
         postBody.appendChild(postHeader);
         let postHeaderText = document.createElement("div");
         postHeaderText.classList = "post__headerText";
+
+        // making the header, and spans which contain the anonymous poster name with the check symbol and @anonymous tag
 
         let h3 = document.createElement("h3");
         let span1 = document.createElement("span");
@@ -88,6 +74,9 @@ let postContainer = document.getElementById("post-container");
         h3.appendChild(span2);
         h3.appendChild(span3);
         postHeaderText.appendChild(h3);
+
+        // creating the last divs which contain the actual message
+
         let postHeaderDescription = document.createElement("div");
         postHeaderDescription.classList = "post__headerDescription";
         let postResults = document.createElement("p");
@@ -96,16 +85,17 @@ let postContainer = document.getElementById("post-container");
         postHeader.appendChild(postHeaderText);
         postHeader.appendChild(postHeaderDescription);
         postContainer.appendChild(post);
-        let msgId = result.message_id;
-        let message = result.message;
-        let reacts = result.react;
-        let comments = result.comments;
-        message.classList = msgId;
-        postResults.textContent = message;
+
+        message.classList = msgId; // assigning each message its ID
+        postResults.textContent = message; //appending the message to the final div inside the post to display
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList = "delete_button";
+        deleteBtn.textContent = "DELETE";
+        post.appendChild(deleteBtn);
       })
     );
-} 
-
+}
 
 /*function appendResults(data) {
   data.forEach((r) => {

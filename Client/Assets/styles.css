@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Source+Code+Pro&display=swap");
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.organizer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+p {
+  font-size: 3rem;
+  text-align: center;
+  color: #00d841;
+  text-shadow: 2px 2px 2px black;
+  font-family: "Source Code Pro", monospace;
+}
+
+.morpheus-fix {
+  position: relative;
+  margin: auto;
+  max-width: 600px;
+}
+
+.morph {
+  display: block;
+  margin: auto;
+  width: 100vw;
+  max-width: 600px;
+}
+
+.redpill {
+  position: absolute;
+  top: 56%;
+  left: 15%;
+  z-index: 2;
+  -webkit-transition: width 1s, height 1s;
+  transition: transform 0.5s ease;
+}
+
+.bluepill {
+  position: absolute;
+  top: 56%;
+  right: 15%;
+  z-index: 2;
+  -webkit-transition: width 1s, height 1s;
+  transition: transform 0.5s ease;
+}
+
+.redpill:hover,
+.bluepill:hover {
+  transform: scale(1.5);
+}
+
+@media only screen and (min-width: 500px) {
+  .redpill,
+  .bluepill {
+    width: 35px;
+  }
+}

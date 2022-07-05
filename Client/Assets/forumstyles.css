@@ -43,7 +43,7 @@ canvas {
 }
 
 .sidebarOption .material-icons {
-    padding: 20px
+    padding: 20px;
 }
 
 .sidebarOption h2 {
@@ -62,6 +62,10 @@ canvas {
 .sidebarOption.active {
     color: rgb(155, 255, 210);
     background-color: rgb(24, 24, 24);
+}
+
+.sidebarButtonLinks {
+    text-decoration: none;
 }
 
 .sidebar__hack {

@@ -2,7 +2,7 @@
 // const form = document.querySelector("form");
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
-// form.addEventListener("submitCommentBox", (event) => {
+// form.addEventListener("submitButton", (event) => {
 //   event.preventDefault();
 //   const formData = new FormData(form);
 //   const profilePicture = formData.get("profileIcon");

@@ -2,7 +2,7 @@
 // const form = document.querySelector("form");
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
-// form.addEventListener("submitButton", (event) => {
+// form.addEventListener("submitCommentBox", (event) => {
 //   event.preventDefault();
 //   const formData = new FormData(form);
 //   const profilePicture = formData.get("profileIcon");
@@ -47,27 +47,27 @@ const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 //     console.log(`ERROR: ${err}`);
 //   }
 // }
-let postResults = document.querySelector('#latestPostsOutput');
+// let postResults = document.querySelector('#latestPostsOutput');
 
-async function getMessages() {
+// async function getMessages() {
    
-    const getMessage = await fetch(API_URL)
-    const data = await getMessage.json()
-    console.log(data);
-    appendResults(data);
-}
+//     const getMessage = await fetch(API_URL)
+//     const data = await getMessage.json()
+//     console.log(data);
+//     appendResults(data);
+// }
 
-function appendResults(data){
-    data.forEach(r => {        
-        postResults.append(makeMessage(r.message));
-    })
-}
+// function appendResults(data){
+//     data.forEach(r => {        
+//         postResults.append(makeMessage(r.message));
+//     })
+// }
 
-function makeMessage(msg){
-    const message = document.createElement("h3");
-    message.textContent = `${msg}`
-    return message;
-}
+// function makeMessage(msg){
+//     const message = document.createElement("h3");
+//     message.textContent = `${msg}`
+//     return message;
+// }
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 

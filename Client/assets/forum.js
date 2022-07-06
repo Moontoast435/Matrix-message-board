@@ -11,9 +11,11 @@ function postMessage(e) {
     body: new URLSearchParams({
       message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
     }),
-  }).catch(console.warn)
-  window.location.reload()
-  
+  })
+    .then(res => {
+      window.location.reload()
+    })
+    .catch(console.warn)
 }
 
 let postContainer = document.getElementById("post-container");
@@ -93,7 +95,7 @@ function getMessages() {
         post.appendChild(deleteBtn);
       })
     )
-  .catch
+    .catch
     (console.warn)
 }
 
@@ -106,7 +108,7 @@ async function deletePost(url) {
       },
     });
     window.location.reload();
-  }catch{
+  } catch {
     (console.warn)
   }
 }
@@ -117,11 +119,15 @@ const modal = document.querySelector("#modal");
 const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-button");
 
-openModal.addEventListener("click", () => {
+
+
+openModal.addEventListener("click", (e) => {
+  e.preventDefault();
   modal.showModal();
 });
 
-closeModal.addEventListener("click", () => {
+closeModal.addEventListener("click", (e) => {
+  e.preventDefault();
   modal.close();
 });
 

@@ -370,15 +370,28 @@ canvas {
   color: rgb(0, 0, 0);
   font-weight: 900;
   border-radius: 30px;
-  width: 60px;
+  width: 70px;
   height: 30px;
   font-size: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
   padding: 5px;
 }
 .comment_button:hover {
   background-color: rgba(46, 46, 46, 0.6);
   color: rgb(155, 255, 210);
+}
+
+/* Emojis */
+
+.emojibutton {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.emojicounter {
+  color: rgb(155, 255, 210);
+  font-size: 10px;
 }
 
 /* window that display comments on individual messages */

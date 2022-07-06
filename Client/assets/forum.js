@@ -93,10 +93,78 @@ function getMessages() {
         });
 
         post.appendChild(deleteBtn);
+
+        let commentBtn = document.createElement("button");
+        commentBtn.classList = "comment_button";
+        commentBtn.id = msgId;
+        commentBtn.textContent = "COMMENT";
+        post.appendChild(commentBtn);
+        commentBtn.addEventListener("click", () => {
+          getComments(API_URL + "/" + msgId + "/comments");
+        });
       })
     )
     .catch
     (console.warn)
+}
+
+function getComments(url) {
+  let commentsBox = document.getElementById("comments_box");
+  commentsBox.style.display = "flex";
+  fetch(url)
+    .then((resp) => resp.json())
+    .then((data) =>
+      data.forEach((result) => {
+        let comment = result.comment;
+        let post = document.createElement("div");
+        post.id = "comment_holder"; // post container
+        let postAvatar = document.createElement("div"); //div for the avatar
+        postAvatar.classList = "post__avatar";
+        let profileImg = document.createElement("img"); // avatar image
+        profileImg.src = "assets/imgs/hackerprofile.png"; // avatar image
+        profileImg.alt = "Profile Icon";
+        postAvatar.appendChild(profileImg);
+        let postBody = document.createElement("div");
+        postBody.classList = "post__body";
+        post.appendChild(postAvatar);
+        post.appendChild(postBody);
+        let postHeader = document.createElement("div");
+        postHeader.classList = "post__header";
+        postBody.appendChild(postHeader);
+        let postHeaderText = document.createElement("div");
+        postHeaderText.classList = "post__headerText";
+        let h3 = document.createElement("h3");
+        let span1 = document.createElement("span");
+        span1.classList = "post__headerName";
+        span1.textContent = "Anonymous";
+        let span2 = document.createElement("span");
+        span2.classList = "material-icons post__badge";
+        span2.textContent = "check_circle";
+        let span3 = document.createElement("span");
+        span3.classList = "post__headerSpecial";
+        span3.textContent = "@anonymous";
+        h3.appendChild(span1);
+        h3.appendChild(span2);
+        h3.appendChild(span3);
+        postHeaderText.appendChild(h3);
+        let postHeaderDescription = document.createElement("div");
+        postHeaderDescription.classList = "post__headerDescription";
+        let postResults = document.createElement("p");
+        postResults.classList = "latestPostsOutput";
+        postHeaderDescription.appendChild(postResults);
+        postHeader.appendChild(postHeaderText);
+        postHeader.appendChild(postHeaderDescription);
+        postContainer.appendChild(post);
+        postResults.textContent = comment;
+        let commentsContainer = document.getElementById("comments_content");
+        commentsContainer.appendChild(post);
+        let commentSubmitBtn = document.getElementById("submit_comment");
+        commentSubmitBtn.addEventListener("click", () => {
+          postComment(url);
+        });
+      })
+    )
+    .catch(console.warn);
 }
 
 async function deletePost(url) {

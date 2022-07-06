@@ -101,6 +101,9 @@ canvas {
   border-top: 1px solid rgb(3, 180, 155);
   border-left: 1px solid rgb(3, 180, 155);
   background-color: rgba(0, 0, 0, 0.6);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .sidebar {
@@ -200,6 +203,12 @@ canvas {
   color: rgb(3, 180, 155);
 }
 
+.gif-and-submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
 #commentBox__commentButton {
   background-color: rgba(3, 180, 155, 0.6);
   border: none;
@@ -208,14 +217,58 @@ canvas {
   border-radius: 30px;
   width: 200px;
   height: 40px;
-  margin-top: 20px;
-  margin-left: auto;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 #commentBox__commentButton:hover {
   background-color: rgba(46, 46, 46, 0.6);
   color: rgb(155, 255, 210);
 }
+
+/* GIF Button Start */
+
+#addGifBtn {
+  background-color: rgba(3, 180, 155, 0.6);
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  border-radius: 30px;
+  width: 60px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+#addGifBtn:hover {
+  background-color: rgba(46, 46, 46, 0.6);
+  color: rgb(155, 255, 210);
+}
+
+#gif__toggle {
+  opacity: 0;
+}
+
+#gif__toggle:checked~.gif__box {
+  left: 0 !important;
+}
+
+.gif__btn {
+  width: 60px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.gif__btn>span::before {
+  content: "";
+
+}
+
+.gif__btn>span::after {
+  content: "";
+  /* top: 8px; */
+}
+
+/* Gif Button End */
 
 /* Posts */
 
@@ -307,9 +360,10 @@ canvas {
   background-color: rgba(46, 46, 46, 0.6);
   color: rgb(155, 255, 210);
 }
+
 /* Gifs */
 
-.gif-container {
+/* .gif-container {
   position: absolute;
   margin: 5px auto;
   max-width: 200px;
@@ -355,7 +409,8 @@ canvas {
 
 .grid__item:hover {
   transform: translateX(10px) rotate(10deg) translateY(2px);
-}
+} */
+
 
 /* Widgets */
 

@@ -93,7 +93,6 @@ function getMessages() {
         deleteBtn.id = "delete_button" + msgId;
         deleteBtn.addEventListener("click", () => {
           deletePost(API_URL + "/" + msgId)
-        
         });
         post.appendChild(deleteBtn);
       })

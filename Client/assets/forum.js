@@ -103,7 +103,7 @@ function getMessages() {
         let kappaButton = document.createElement('img'); // Create new img element in HTML
         let kappaCount = document.createElement('p'); // Create a p element for the counter
         kappaReact.setAttribute("class", "reactcontainer");
-        kappaButton.src = './assets/imgs/kappa.jpg'; // Insert the path to the image file
+        kappaButton.src = './assets/imgs/kappa.png'; // Insert the path to the image file
         kappaButton.alt = 'Kappa Emoji';
         kappaButton.setAttribute("class", "emojibutton",); // Set attributes like id, class, name, etc here.
         kappaCount.textContent = result.react[1].kappa; // Sets the number of times the emoji has been clicked

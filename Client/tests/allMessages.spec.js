@@ -13,7 +13,21 @@ const html = fs.readFileSync(path.resolve(__dirname, '../forum.html'), 'utf8');
 global.fetch = require('jest-fetch-mock');
 let app;
 
-describe('app', () => {
+describe('allMessages', () => {
+
+    const messages = [
+        {
+          message_id: 1,
+          message: "example message",
+          comments: [
+            { comment: "example comment" },
+            { comment: "example comment" },
+            { comment: "example comment" },
+          ],
+          react: [{ like: 1 }, { dislike: 0 }, { heart: 0 }],
+        }
+      ];
+
     beforeEach(() => {
         document.documentElement.innerHTML = html.toString();
         app = require('../assets/forum.js')
@@ -25,37 +39,53 @@ describe('app', () => {
 
     describe('requests', () => {
         describe('getAllMessages', () => {
-            test('it makes a get request to /messages', () => {
+            test('it makes a delete request to /messages', () => {
                 app.deletePost();
-                // expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/\/cats$/))
-                // expect(fetch.mock.calls[0][0]).toMatch(/cats$/)
                 expect(app.deletePost).toBeTruthy();
+
             })
 
             
 
             test('it makes a get request to /messages', () => {
                 app.getMessages();
-                // expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/\/cats$/))
-                // expect(fetch.mock.calls[0][0]).toMatch(/cats$/)
                 expect(app.getMessages).toBeTruthy();
+                expect(fetch).toHaveBeenCalledWith('https://evening-retreat-34987.herokuapp.com/messages')
+                expect(fetch).toHaveBeenCalled();
+                expect(fetch.mock.calls[0][0]).toMatch(/messages$/)
             })
-            beforeEach(() => {
-                fetch.resetMocks();
-                evt =  { preventDefault: jest.fn()}
+
+            //for create
+            
+            it("exists",  () => {
+                let evt = {preventDefault: jest.fn(), target: [{value: "test"}]}
+                message = app.postMessage(evt);
+                expect(message).toBeDefined()
             })
-            test('it makes a get request to /messages', () => {
+
+            test('it makes a post request to /messages', () => {
+                let evt = {preventDefault: jest.fn(), target: [{message: "test"}]}
                 app.postMessage(evt);
-                // expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/\/cats$/))
-                // expect(fetch.mock.calls[0][0]).toMatch(/cats$/)
                 expect(app.postMessage).toBeTruthy();
+
+            })
+
+
+            //for getMessages
+            beforeEach(() => {
+                const section = document.createElement(".producti")
+                app.getMessages(section)
+                document.body.append(section)
+            })
+    
+            it("has a set up, date and punchline button on the page", () => {
+                expect(document.querySelector('section').textContent).toContain("example message");
+                expect(document.querySelector('section button')).toBeTruthy();
             })
         });
         
-       
     })
 
     
-
 
 })

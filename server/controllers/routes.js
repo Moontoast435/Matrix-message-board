@@ -64,11 +64,11 @@ router.patch("/:id/reacts", (req, res) => {
   let selectReacts = Message.findReacts(msgId);
   let key = Object.keys(data);
   if (key[0] === "kek") {
-    selectReacts[0].like += 1;
+    selectReacts[0].kek += 1;
   } else if (key[0] === "kappa") {
-    selectReacts[1].dislike += 1;
+    selectReacts[1].kappa += 1;
   } else {
-    selectReacts[2].heart += 1;
+    selectReacts[2].pepeHands += 1;
   }
 
   res.send(selectReacts);

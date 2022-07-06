@@ -11,9 +11,8 @@ function postMessage(e) {
     body: new URLSearchParams({
       message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
     }),
-  }).catch(console.warn)
-  window.location.reload()
-  
+  }).catch(console.warn);
+  window.location.reload();
 }
 
 let postContainer = document.getElementById("post-container");
@@ -92,6 +91,7 @@ function getMessages() {
 
         let commentBtn = document.createElement("button");
         commentBtn.classList = "comment_button";
+        commentBtn.id = msgId;
         commentBtn.textContent = "COMMENT";
         post.appendChild(commentBtn);
         commentBtn.addEventListener("click", () => {
@@ -102,32 +102,68 @@ function getMessages() {
 }
 
 function getComments(url) {
+  let commentsBox = document.getElementById("comments_box");
+  commentsBox.style.display = "flex";
   fetch(url)
     .then((resp) => resp.json())
     .then((data) =>
       data.forEach((result) => {
         let comment = result.comment;
+        let post = document.createElement("div");
+        post.id = "comment_holder"; // post container
+        let postAvatar = document.createElement("div"); //div for the avatar
+        postAvatar.classList = "post__avatar";
+        let profileImg = document.createElement("img"); // avatar image
+        profileImg.src = "assets/imgs/hackerprofile.png"; // avatar image
+        profileImg.alt = "Profile Icon";
+        postAvatar.appendChild(profileImg);
 
-        let commentsContainer = document.createElement("div");
-        commentsContainer.classList = "comment_box";
-        let commentsSection = document.createElement("div");
-        commentsSection.classList = "comments_section";
-        let commentsDelete = document.createElement("button");
-        commentsDelete.id = "comments_delete_button";
-        let commentPost = document.createElement("input");
-        commentPost.classList = "commentPost";
-        //  comments.forEach((comment) => {
-        let para = document.createElement("p");
-        para.textContent = comment;
-        commentsSection.appendChild(para);
-        //  });
-        commentsContainer.appendChild(commentsSection);
-        let postToAttach = document.getElementById("post");
-        postToAttach.appendChild(commentsContainer);
+        let postBody = document.createElement("div");
+        postBody.classList = "post__body";
+        post.appendChild(postAvatar);
+        post.appendChild(postBody);
+        let postHeader = document.createElement("div");
+        postHeader.classList = "post__header";
+        postBody.appendChild(postHeader);
+        let postHeaderText = document.createElement("div");
+        postHeaderText.classList = "post__headerText";
+
+        let h3 = document.createElement("h3");
+        let span1 = document.createElement("span");
+        span1.classList = "post__headerName";
+        span1.textContent = "Anonymous";
+        let span2 = document.createElement("span");
+        span2.classList = "material-icons post__badge";
+        span2.textContent = "check_circle";
+        let span3 = document.createElement("span");
+        span3.classList = "post__headerSpecial";
+        span3.textContent = "@anonymous";
+        h3.appendChild(span1);
+        h3.appendChild(span2);
+        h3.appendChild(span3);
+        postHeaderText.appendChild(h3);
+
+        let postHeaderDescription = document.createElement("div");
+        postHeaderDescription.classList = "post__headerDescription";
+        let postResults = document.createElement("p");
+        postResults.classList = "latestPostsOutput";
+        postHeaderDescription.appendChild(postResults);
+        postHeader.appendChild(postHeaderText);
+        postHeader.appendChild(postHeaderDescription);
+        postContainer.appendChild(post);
+
+        postResults.textContent = comment;
+        let commentsContainer = document.getElementById("comments_content");
+
+        commentsContainer.appendChild(post);
+
+        let commentSubmitBtn = document.getElementById("submit_comment");
+        commentSubmitBtn.addEventListener("click", () => {
+          postComment(url);
+        });
       })
     )
-  .catch
-    (console.warn)
+    .catch(console.warn);
 }
 
 async function deletePost(url) {
@@ -139,9 +175,24 @@ async function deletePost(url) {
       },
     });
     window.location.reload();
-  }catch{
-    (console.warn)
+  } catch {
+    console.warn;
   }
+}
+
+async function postComment(url) {
+  const commentInputFieldData =
+    document.getElementById("input_commentBox").value;
+  console.log(commentInputFieldData);
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      comment: commentInputFieldData, // takes the input value and passes it to the comment parameter to be posted to the API
+    }),
+  }).catch(console.log("error"));
 }
 
 // // Giphy API key
@@ -173,10 +224,9 @@ async function deletePost(url) {
 //     });
 // }
 
-
-
 module.exports = {
   getMessages,
   deletePost,
-  postMessage
-}
+  postMessage,
+  getComments,
+};

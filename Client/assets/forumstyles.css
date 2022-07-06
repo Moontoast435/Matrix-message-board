@@ -226,7 +226,7 @@ canvas {
   color: rgb(155, 255, 210);
 }
 
-/* GIF Button Start */
+/* GIF */
 
 #addGifBtn {
   background-color: rgba(3, 180, 155, 0.6);
@@ -244,31 +244,34 @@ canvas {
   color: rgb(155, 255, 210);
 }
 
-#gif__toggle {
-  opacity: 0;
+.modal {
+  max-width: 50ch;
+  background-color: rgb(46, 46, 46);
+  color: rgb(155, 255, 210);
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 180px;
 }
 
-#gif__toggle:checked~.gif__box {
-  left: 0 !important;
+.modal::backdrop {
+  background-color: rgba(46, 46, 46, 0.6);
 }
 
-.gif__btn {
+.button {
+  background-color: rgba(3, 180, 155, 0.6);
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  border-radius: 30px;
   width: 60px;
   height: 40px;
-  cursor: pointer;
+  margin-top: 10px;
 }
-
-.gif__btn>span::before {
-  content: "";
-
+.button:hover {
+  background-color: rgba(46, 46, 46, 0.6);
+  color: rgb(155, 255, 210);
 }
-
-.gif__btn>span::after {
-  content: "";
-  /* top: 8px; */
-}
-
-/* Gif Button End */
 
 /* Posts */
 

@@ -56,15 +56,16 @@ router.post("/:id/comments", (req, res) => {
   selectedComments.push(data);
   res.send(selectedComments);
 });
+// PATCH method
 
-router.post("/:id/reacts", (req, res) => {
+router.patch("/:id/reacts", (req, res) => {
   const data = req.body;
   const msgId = parseInt(req.params.id);
   let selectReacts = Message.findReacts(msgId);
   let key = Object.keys(data);
-  if (key[0] === "like") {
+  if (key[0] === "kek") {
     selectReacts[0].like += 1;
-  } else if (key[0] === "dislike") {
+  } else if (key[0] === "kappa") {
     selectReacts[1].dislike += 1;
   } else {
     selectReacts[2].heart += 1;

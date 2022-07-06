@@ -43,7 +43,7 @@ class Message {
     const newMsg = new Message({
       message_id: newMsgId,
       comments: [],
-      react: [{ like: 0 }, { dislike: 0 }, { heart: 0 }],
+      react: [{ kek: 0 }, { kappa: 0 }, { pepeHands: 0 }],
       ...message,
     });
     messagesData.push(newMsg);

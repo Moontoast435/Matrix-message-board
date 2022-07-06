@@ -229,7 +229,7 @@ canvas {
   height: 40px;
 }
 
-.post {
+#post {
   display: flex;
   align-items: flex-start;
   border-bottom: 1px solid rgb(3, 180, 155);
@@ -304,6 +304,24 @@ canvas {
 }
 
 .delete_button:hover {
+  background-color: rgba(46, 46, 46, 0.6);
+  color: rgb(155, 255, 210);
+}
+
+.comment_button {
+  background-color: rgba(3, 180, 155, 0.6);
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  border-radius: 30px;
+  width: 60px;
+  height: 30px;
+  font-size: 10px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.comment_button:hover {
   background-color: rgba(46, 46, 46, 0.6);
   color: rgb(155, 255, 210);
 }

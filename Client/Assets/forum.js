@@ -32,11 +32,10 @@ function getMessages() {
         let msgId = result.message_id; // this will just assign the post an ID, could be useful for deleting or changing specific posts
         let message = result.message; // transferring the message from the post to a variable
         let reacts = result.react; // reacts and comments arent being used yet but stored those properties into variables for later
-        let comments = result.comments;
         // the messages array has .forEach applied to it, which then will create a series of divs with classes to be appended to each other to make the 'post'
 
         let post = document.createElement("div"); // post container
-        post.classList = "post";
+        post.id = "post";
         let postAvatar = document.createElement("div"); //div for the avatar
         postAvatar.classList = "post__avatar";
         let profileImg = document.createElement("img"); // avatar image
@@ -94,8 +93,42 @@ function getMessages() {
         deleteBtn.addEventListener("click", () => {
           deletePost(API_URL + "/" + msgId);
         });
-
         post.appendChild(deleteBtn);
+
+        let commentBtn = document.createElement("button");
+        commentBtn.classList = "comment_button";
+        commentBtn.textContent = "COMMENT";
+        post.appendChild(commentBtn);
+        commentBtn.addEventListener("click", () => {
+          getComments(API_URL + "/" + msgId + "/comments");
+        });
+      })
+    );
+}
+
+function getComments(url) {
+  fetch(url)
+    .then((resp) => resp.json())
+    .then((data) =>
+      data.forEach((result) => {
+        let comment = result.comment;
+
+        let commentsContainer = document.createElement("div");
+        commentsContainer.classList = "comment_box";
+        let commentsSection = document.createElement("div");
+        commentsSection.classList = "comments_section";
+        let commentsDelete = document.createElement("button");
+        commentsDelete.id = "comments_delete_button";
+        let commentPost = document.createElement("input");
+        commentPost.classList = "commentPost";
+        //  comments.forEach((comment) => {
+        let para = document.createElement("p");
+        para.textContent = comment;
+        commentsSection.appendChild(para);
+        //  });
+        commentsContainer.appendChild(commentsSection);
+        let postToAttach = document.getElementById("post");
+        postToAttach.appendChild(commentsContainer);
       })
     );
 }
@@ -110,17 +143,6 @@ async function deletePost(url) {
   window.location.reload();
 }
 
-/*function appendResults(data) {
-  data.forEach((r) => {
-    postResults.append(makeMessage(r.message));
-  });
-}
-
-function makeMessage(msg) {
-  const message = document.createElement("h3");
-  message.textContent = `${msg}`;
-  return message;
-} */
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 

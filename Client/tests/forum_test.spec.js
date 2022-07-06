@@ -5,7 +5,6 @@
 const { expect } = require("@jest/globals");
 const fs = require("fs");
 const path = require("path");
-const { describe } = require("yargs");
 const html = fs.readFileSync(path.resolve(__dirname, "../forum.html"), "utf8");
 
 

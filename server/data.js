@@ -7,7 +7,7 @@ const messages = [
       { comment: "example comment" },
       { comment: "example comment" },
     ],
-    react: [{ like: 1 }, { dislike: 0 }, { heart: 0 }],
+    react: [{ kek: 0 }, { kappa: 0 }, { pepeHands: 0 }],
   },
 
   {
@@ -18,7 +18,7 @@ const messages = [
       { comment: "example comment" },
       { comment: "example comment" },
     ],
-    react: [{ like: 0 }, { dislike: 1 }, { heart: 0 }],
+    react: [{ like: 0 }, { dislike: 0}, { heart: 0 }],
   },
 ];
 

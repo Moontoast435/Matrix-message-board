@@ -102,6 +102,39 @@ function getMessages() {
         commentBtn.addEventListener("click", () => {
           getComments(API_URL + "/" + msgId + "/comments");
         });
+
+        let kekReact = document.createElement('div'); // Create a container for the emoji button and the counter
+        let kekButton = document.createElement('img'); // Create new img element in HTML
+        let kekCount = document.createElement('p'); // Create a p element for the counter
+        kekReact.setAttribute();
+        kekButton.src = './imgs/kekw.jpg'; // Insert the path to the image file
+        kekButton.setAttribute("class", "button"); // Set attributes like id, class, name, etc here.
+        kekCount.textContent = put - the - count - from - json - file - here; // Sets the number of times the emoji has been clicked
+        kekCount.setAttribute();
+        kekReact.append(kekButton, kekCount);
+        containerYouWantTheReactsToGoIn.append(kekReact);
+
+        let kappaReact = document.createElement('div'); // Create a container for the emoji button and the counter
+        let kappaButton = document.createElement('img'); // Create new img element in HTML
+        let kappaCount = document.createElement('p'); // Create a p element for the counter
+        kappaReact.setAttribute();
+        kappaButton.src = './imgs/kappa.jpg'; // Insert the path to the image file
+        kappaButton.setAttribute("class", "button"); // Set attributes like id, class, name, etc here.
+        kappaCount.textContent = put - the - count - from - json - file - here; // Sets the number of times the emoji has been clicked
+        kappaCount.setAttribute();
+        kappaReact.append(kappaButton, kappaCount);
+        containerYouWantTheReactsToGoIn.append(kappaReact);
+
+        let pepeHandsReact = document.createElement('div'); // Create a container for the emoji button and the counter
+        let pepeHandsButton = document.createElement('img'); // Create new img element in HTML
+        let pepeHandsCount = document.createElement('p'); // Create a p element for the counter
+        pepeHands.setAttribute();
+        pepeHandsButton.src = './imgs/pepehands.png'; // Insert the path to the image file
+        pepeHandsButton.setAttribute("class", "button"); // Set attributes like id, class, name, etc here.
+        pepeHandsCount.textContent = put - the - count - from - json - file - here; // Sets the number of times the emoji has been clicked
+        pepeHandsCount.setAttribute();
+        pepeHandsReact.append(pepeHandsButton, pepeHandsCount);
+        containerYouWantTheReactsToGoIn.append(pepeHandsReact);
       })
     )
     .catch

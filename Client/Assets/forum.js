@@ -1,11 +1,4 @@
-const submitBtn = document.getElementById("commentBox__commentButton");
-
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
-
-// Adding the event listener to the 'Hack the mainframe' button (the submit post button)
-submitBtn.addEventListener("click", (e) => {
-  postMessage(e);
-});
 
 function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
@@ -18,9 +11,11 @@ function postMessage(e) {
     body: new URLSearchParams({
       message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
     }),
-  });
-  window.location.reload(); //reloads the page so that the new message shows up
+  }).catch(console.warn)
+  window.location.reload()
+  
 }
+
 let postContainer = document.getElementById("post-container");
 
 // This functions will display all of the posts from the API to the forum page
@@ -130,17 +125,23 @@ function getComments(url) {
         let postToAttach = document.getElementById("post");
         postToAttach.appendChild(commentsContainer);
       })
-    );
+    )
+  .catch
+    (console.warn)
 }
 
 async function deletePost(url) {
-  const resp = await fetch(url, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
-  window.location.reload();
+  try {
+    const resp = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+    window.location.reload();
+  }catch{
+    (console.warn)
+  }
 }
 
 // // Giphy API key
@@ -172,4 +173,10 @@ async function deletePost(url) {
 //     });
 // }
 
-getMessages();
+
+
+module.exports = {
+  getMessages,
+  deletePost,
+  postMessage
+}

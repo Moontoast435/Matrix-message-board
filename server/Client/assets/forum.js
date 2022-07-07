@@ -3,7 +3,7 @@ const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
   const commentBoxData = document.getElementById("feedInput").value; // targets the input box and takes its value to be stored in commentBoxData
-  if (commentBoxData = document.trim()) {
+  if (commentBoxData.trim()) {
   fetch(API_URL, {
     method: "POST",
     headers: {

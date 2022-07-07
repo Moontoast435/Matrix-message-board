@@ -4,19 +4,19 @@ function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
   const commentBoxData = document.getElementById("feedInput").value; // targets the input box and takes its value to be stored in commentBoxData
   if (commentBoxData.trim()) {
-  fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-    },
-    body: new URLSearchParams({
-      message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
-    }),
-  })
-    .then((res) => {
-      window.location.reload();
+    fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+      },
+      body: new URLSearchParams({
+        message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
+      }),
     })
-    .catch(console.warn);
+      .then((res) => {
+        window.location.reload();
+      })
+      .catch(console.warn);
   }
 }
 
@@ -26,170 +26,170 @@ let postContainer = document.getElementById("post-container");
 function getMessages() {
   fetch(API_URL)
     .then((resp) => resp.json()) //converting the fetch resp to json
-    .then((data) =>{
-        data.reverse();
-        data.forEach((result) => {
-          let msgId = result.message_id; // this will just assign the post an ID, could be useful for deleting or changing specific posts
-          let message = result.message; // transferring the message from the post to a variable
-          let reacts = result.react; // reacts and comments arent being used yet but stored those properties into variables for later
-          let comments = result.comments;
-          // the messages array has .forEach applied to it, which then will create a series of divs with classes to be appended to each other to make the 'post'
+    .then((data) => {
+      data.reverse();
+      data.forEach((result) => {
+        let msgId = result.message_id; // this will just assign the post an ID, could be useful for deleting or changing specific posts
+        let message = result.message; // transferring the message from the post to a variable
+        let reacts = result.react; // reacts and comments arent being used yet but stored those properties into variables for later
+        let comments = result.comments;
+        // the messages array has .forEach applied to it, which then will create a series of divs with classes to be appended to each other to make the 'post'
 
-          let post = document.createElement("div"); // post container
-          post.classList = "post";
-          let postAvatar = document.createElement("div"); //div for the avatar
-          postAvatar.classList = "post__avatar";
-          let profileImg = document.createElement("img"); // avatar image
-          profileImg.src = "assets/imgs/hackerprofile.png"; // avatar image
-          profileImg.alt = "Profile Icon";
-          postAvatar.appendChild(profileImg);
+        let post = document.createElement("div"); // post container
+        post.classList = "post";
+        let postAvatar = document.createElement("div"); //div for the avatar
+        postAvatar.classList = "post__avatar";
+        let profileImg = document.createElement("img"); // avatar image
+        profileImg.src = "assets/imgs/hackerprofile.png"; // avatar image
+        profileImg.alt = "Profile Icon";
+        postAvatar.appendChild(profileImg);
 
-          // making the post body and post header divs, for which the message text will be eventually added.
+        // making the post body and post header divs, for which the message text will be eventually added.
 
-          let postBody = document.createElement("div");
-          postBody.classList = "post__body";
-          post.appendChild(postAvatar);
-          post.appendChild(postBody);
-          let postHeader = document.createElement("div");
-          postHeader.classList = "post__header";
-          postBody.appendChild(postHeader);
-          let postHeaderText = document.createElement("div");
-          postHeaderText.classList = "post__headerText";
+        let postBody = document.createElement("div");
+        postBody.classList = "post__body";
+        post.appendChild(postAvatar);
+        post.appendChild(postBody);
+        let postHeader = document.createElement("div");
+        postHeader.classList = "post__header";
+        postBody.appendChild(postHeader);
+        let postHeaderText = document.createElement("div");
+        postHeaderText.classList = "post__headerText";
 
-          // making the header, and spans which contain the anonymous poster name with the check symbol and @anonymous tag
+        // making the header, and spans which contain the anonymous poster name with the check symbol and @anonymous tag
 
-          let h3 = document.createElement("h3");
-          let span1 = document.createElement("span");
-          span1.classList = "post__headerName";
-          span1.textContent = "Anonymous";
-          let span2 = document.createElement("span");
-          span2.classList = "material-icons post__badge";
-          span2.textContent = "check_circle";
-          let span3 = document.createElement("span");
-          span3.classList = "post__headerSpecial";
-          span3.textContent = "@anonymous";
-          h3.appendChild(span1);
-          h3.appendChild(span2);
-          h3.appendChild(span3);
-          postHeaderText.appendChild(h3);
+        let h3 = document.createElement("h3");
+        let span1 = document.createElement("span");
+        span1.classList = "post__headerName";
+        span1.textContent = "Anonymous";
+        let span2 = document.createElement("span");
+        span2.classList = "material-icons post__badge";
+        span2.textContent = "check_circle";
+        let span3 = document.createElement("span");
+        span3.classList = "post__headerSpecial";
+        span3.textContent = "@anonymous";
+        h3.appendChild(span1);
+        h3.appendChild(span2);
+        h3.appendChild(span3);
+        postHeaderText.appendChild(h3);
 
-          // creating the last divs which contain the actual message
+        // creating the last divs which contain the actual message
 
-          let postHeaderDescription = document.createElement("div");
-          postHeaderDescription.classList = "post__headerDescription";
-          let postResults = document.createElement("p");
-          postResults.classList = "latestPostsOutput";
-          postHeaderDescription.appendChild(postResults);
-          postHeader.appendChild(postHeaderText);
-          postHeader.appendChild(postHeaderDescription);
-          postContainer.appendChild(post);
+        let postHeaderDescription = document.createElement("div");
+        postHeaderDescription.classList = "post__headerDescription";
+        let postResults = document.createElement("p");
+        postResults.classList = "latestPostsOutput";
+        postHeaderDescription.appendChild(postResults);
+        postHeader.appendChild(postHeaderText);
+        postHeader.appendChild(postHeaderDescription);
+        postContainer.appendChild(post);
 
-          message.classList = msgId; // assigning each message its ID
-          postResults.textContent = message; //appending the message to the final div inside the post to display
+        message.classList = msgId; // assigning each message its ID
+        postResults.textContent = message; //appending the message to the final div inside the post to display
 
-          let kekReact = document.createElement("div"); // Create a container for the emoji button and the counter
-          let kekButton = document.createElement("img"); // Create new img element in HTML
-          let kekCount = document.createElement("p"); // Create a p element for the counter
-          kekReact.setAttribute("class", "reactcontainer");
-          kekReact.id = "kek";
-          kekButton.src = "./assets/imgs/kekw.jpg"; // Insert the path to the image file
-          kekButton.alt = "Kekw Emoji";
-          kekButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
-          kekCount.textContent = result.react[0].kek; // Sets the number of times the emoji has been clicked
-          kekCount.setAttribute("class", "emojicounter");
-          kekReact.append(kekButton, kekCount);
-          post.append(kekReact);
-          kekButton.addEventListener("click", () => {
-            fetch(API_URL + "/" + msgId + "/reacts", {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-              },
-              body: new URLSearchParams({
-                kek: "",
-              }),
+        let kekReact = document.createElement("div"); // Create a container for the emoji button and the counter
+        let kekButton = document.createElement("img"); // Create new img element in HTML
+        let kekCount = document.createElement("p"); // Create a p element for the counter
+        kekReact.setAttribute("class", "reactcontainer");
+        kekReact.id = "kek";
+        kekButton.src = "./assets/imgs/kekw.jpg"; // Insert the path to the image file
+        kekButton.alt = "Kekw Emoji";
+        kekButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
+        kekCount.textContent = result.react[0].kek; // Sets the number of times the emoji has been clicked
+        kekCount.setAttribute("class", "emojicounter");
+        kekReact.append(kekButton, kekCount);
+        post.append(kekReact);
+        kekButton.addEventListener("click", () => {
+          fetch(API_URL + "/" + msgId + "/reacts", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              kek: "",
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
             })
-              .then((res) => {
-                window.location.reload();
-              })
-              .catch(console.warn);
-          });
+            .catch(console.warn);
+        });
 
-          let kappaReact = document.createElement("div"); // Create a container for the emoji button and the counter
-          let kappaButton = document.createElement("img"); // Create new img element in HTML
-          let kappaCount = document.createElement("p"); // Create a p element for the counter
-          kappaReact.setAttribute("class", "reactcontainer");
-          kappaButton.src = "./assets/imgs/kappa.png"; // Insert the path to the image file
-          kappaButton.alt = "Kappa Emoji";
-          kappaButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
-          kappaCount.textContent = result.react[1].kappa; // Sets the number of times the emoji has been clicked
-          kappaCount.setAttribute("class", "emojicounter");
-          kappaReact.append(kappaButton, kappaCount);
-          post.append(kappaReact);
-          kappaButton.addEventListener("click", () => {
-            fetch(API_URL + "/" + msgId + "/reacts", {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-              },
-              body: new URLSearchParams({
-                kappa: "",
-              }),
+        let kappaReact = document.createElement("div"); // Create a container for the emoji button and the counter
+        let kappaButton = document.createElement("img"); // Create new img element in HTML
+        let kappaCount = document.createElement("p"); // Create a p element for the counter
+        kappaReact.setAttribute("class", "reactcontainer");
+        kappaButton.src = "./assets/imgs/kappa.png"; // Insert the path to the image file
+        kappaButton.alt = "Kappa Emoji";
+        kappaButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
+        kappaCount.textContent = result.react[1].kappa; // Sets the number of times the emoji has been clicked
+        kappaCount.setAttribute("class", "emojicounter");
+        kappaReact.append(kappaButton, kappaCount);
+        post.append(kappaReact);
+        kappaButton.addEventListener("click", () => {
+          fetch(API_URL + "/" + msgId + "/reacts", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              kappa: "",
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
             })
-              .then((res) => {
-                window.location.reload();
-              })
-              .catch(console.warn);
-          });
+            .catch(console.warn);
+        });
 
-          let pepeHandsReact = document.createElement("div"); // Create a container for the emoji button and the counter
-          let pepeHandsButton = document.createElement("img"); // Create new img element in HTML
-          let pepeHandsCount = document.createElement("p"); // Create a p element for the counter
-          pepeHandsReact.setAttribute("class", "reactcontainer");
-          pepeHandsReact.id = "pepeHands";
-          pepeHandsButton.src = "./assets/imgs/pepehands.png"; // Insert the path to the image file
-          pepeHandsButton.alt = "PepeHands Emoji";
-          pepeHandsButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
-          pepeHandsCount.textContent = result.react[2].pepeHands; // Sets the number of times the emoji has been clicked
-          pepeHandsCount.setAttribute("class", "emojicounter");
-          pepeHandsReact.append(pepeHandsButton, pepeHandsCount);
-          post.append(pepeHandsReact);
-          pepeHandsButton.addEventListener("click", () => {
-            fetch(API_URL + "/" + msgId + "/reacts", {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-              },
-              body: new URLSearchParams({
-                pepeHands: "",
-              }),
+        let pepeHandsReact = document.createElement("div"); // Create a container for the emoji button and the counter
+        let pepeHandsButton = document.createElement("img"); // Create new img element in HTML
+        let pepeHandsCount = document.createElement("p"); // Create a p element for the counter
+        pepeHandsReact.setAttribute("class", "reactcontainer");
+        pepeHandsReact.id = "pepeHands";
+        pepeHandsButton.src = "./assets/imgs/pepehands.png"; // Insert the path to the image file
+        pepeHandsButton.alt = "PepeHands Emoji";
+        pepeHandsButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
+        pepeHandsCount.textContent = result.react[2].pepeHands; // Sets the number of times the emoji has been clicked
+        pepeHandsCount.setAttribute("class", "emojicounter");
+        pepeHandsReact.append(pepeHandsButton, pepeHandsCount);
+        post.append(pepeHandsReact);
+        pepeHandsButton.addEventListener("click", () => {
+          fetch(API_URL + "/" + msgId + "/reacts", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              pepeHands: "",
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
             })
-              .then((res) => {
-                window.location.reload();
-              })
-              .catch(console.warn);
-          });
+            .catch(console.warn);
+        });
 
-          let commentBtn = document.createElement("button");
-          commentBtn.classList = "comment_button";
-          commentBtn.id = msgId;
-          commentBtn.textContent = "COMMENT";
-          post.appendChild(commentBtn);
-          commentBtn.addEventListener("click", () => {
-            getComments(API_URL + "/" + msgId + "/comments");
-          });
+        let commentBtn = document.createElement("button");
+        commentBtn.classList = "comment_button";
+        commentBtn.id = msgId;
+        commentBtn.textContent = "COMMENT";
+        post.appendChild(commentBtn);
+        commentBtn.addEventListener("click", () => {
+          getComments(API_URL + "/" + msgId + "/comments");
+        });
 
-          let deleteBtn = document.createElement("button");
-          deleteBtn.classList = "delete_button";
-          deleteBtn.textContent = "DELETE";
-          deleteBtn.id = "delete_button" + msgId;
-          deleteBtn.addEventListener("click", () => {
-            deletePost(API_URL + "/" + msgId);
-          });
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList = "delete_button";
+        deleteBtn.textContent = "DELETE";
+        deleteBtn.id = "delete_button" + msgId;
+        deleteBtn.addEventListener("click", () => {
+          deletePost(API_URL + "/" + msgId);
+        });
 
-          post.appendChild(deleteBtn);
-        })
-      }
+        post.appendChild(deleteBtn);
+      })
+    }
     )
     .catch(console.warn);
 }
@@ -203,7 +203,6 @@ function getComments(url) {
       data.forEach((result) => {
         let comment = result.comment;
         let post = document.createElement("div");
-        post.classList = "post";
         post.id = "comment_holder"; // post container
         let postAvatar = document.createElement("div"); //div for the avatar
         postAvatar.classList = "post__avatar";

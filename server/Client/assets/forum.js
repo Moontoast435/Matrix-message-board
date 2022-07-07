@@ -3,6 +3,7 @@ const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
   const commentBoxData = document.getElementById("feedInput").value; // targets the input box and takes its value to be stored in commentBoxData
+  if (commentBoxData = document.trim()) {
   fetch(API_URL, {
     method: "POST",
     headers: {
@@ -16,6 +17,7 @@ function postMessage(e) {
       window.location.reload();
     })
     .catch(console.warn);
+  }
 }
 
 let postContainer = document.getElementById("post-container");
@@ -281,17 +283,6 @@ closeModal.addEventListener("click", (e) => {
   modal.close();
 });
 
-/*function appendResults(data) {
-  data.forEach((r) => {
-    postResults.append(makeMessage(r.message));
-  });
-}
-
-function makeMessage(msg) {
-  const message = document.createElement("h3");
-  message.textContent = `${msg}`;
-  return message;
-} */
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 

@@ -183,7 +183,7 @@ function getMessages() {
         commentSubmitBtn.addEventListener("click", () => {
           let commentBoxValue =
             document.getElementById("input_commentBox").value;
-          fetch(url + "/" + msgId + "/comments", {
+          fetch(API_URL + "/" + msgId + "/comments", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
@@ -352,7 +352,7 @@ function init() {
         gifImg6.src = content.data[5].images.fixed_width_small.url;
         gifImg6.alt = content.data[5].title;
         let out6 = document.querySelector(".grid__item6");
-        
+
         out1.appendChild(gifImg1);
         out2.appendChild(gifImg2);
         out3.appendChild(gifImg3);

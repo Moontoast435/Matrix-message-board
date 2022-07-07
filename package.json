@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "node": "node server.js",
+    "node": "node server/server.js",
     "test": "jest --silent --watchAll",
     "coverage": "jest --coverage --silent",
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "author": "",
   "license": "ISC",

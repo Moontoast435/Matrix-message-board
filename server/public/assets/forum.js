@@ -233,6 +233,10 @@ function getComments(url) {
   let closeButton = document.getElementById("commentsBox_close");
   closeButton.addEventListener("click", () => {
     commentsBox.style.display = "none";
+    // removing previously searched gifs
+    for (let i = 1; i < 7; i++ ){
+      document.querySelector(`.gif-${i}`).remove()
+    }
   });
 
   fetch(url)
@@ -316,9 +320,22 @@ openModal.addEventListener("click", (e) => {
 closeModal.addEventListener("click", (e) => {
   e.preventDefault();
   modal.close();
+  gifKiller(document.querySelector(".grid__item1"))
 });
 
 // Giphy API key
+
+// Gif killer function
+
+function gifKiller(gifContainer) {
+  // checks if gifs exist
+  if (gifContainer.contains(document.querySelector('.gif-1'))){
+    // looping 6 times (gif 1 to 6) and deleting gifs
+    for (let i = 1; i < 7; i++ ){
+      document.querySelector(`.gif-${i}`).remove()
+    }
+  }
+}
 
 const APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 document.addEventListener("DOMContentLoaded", init);
@@ -338,32 +355,43 @@ function init() {
         let gifImg1 = document.createElement("img");
         gifImg1.src = content.data[0].images.fixed_width_small.url;
         gifImg1.alt = content.data[0].title;
+        gifImg1.className = 'gif-1';
         let out1 = document.querySelector(".grid__item1");
 
         let gifImg2 = document.createElement("img");
         gifImg2.src = content.data[1].images.fixed_width_small.url;
         gifImg2.alt = content.data[1].title;
+        gifImg2.className = 'gif-2';
         let out2 = document.querySelector(".grid__item2");
+        
 
         let gifImg3 = document.createElement("img");
         gifImg3.src = content.data[2].images.fixed_width_small.url;
         gifImg3.alt = content.data[2].title;
+        gifImg3.className = 'gif-3';
         let out3 = document.querySelector(".grid__item3");
+        
 
         let gifImg4 = document.createElement("img");
         gifImg4.src = content.data[3].images.fixed_width_small.url;
         gifImg4.alt = content.data[3].title;
+        gifImg4.className = 'gif-4';
         let out4 = document.querySelector(".grid__item4");
 
         let gifImg5 = document.createElement("img");
         gifImg5.src = content.data[4].images.fixed_width_small.url;
         gifImg5.alt = content.data[4].title;
+        gifImg5.className = 'gif-5';
         let out5 = document.querySelector(".grid__item5");
 
         let gifImg6 = document.createElement("img");
         gifImg6.src = content.data[5].images.fixed_width_small.url;
         gifImg6.alt = content.data[5].title;
+        gifImg6.className = 'gif-6'
         let out6 = document.querySelector(".grid__item6");
+
+        // kills any gifs that previously existed before the search
+        gifKiller(out1)
 
         out1.appendChild(gifImg1);
         out2.appendChild(gifImg2);
@@ -373,6 +401,7 @@ function init() {
         out6.appendChild(gifImg6);
       })
       .catch((err) => {
+        console.log(err)
         console.error("This didn't work.");
       });
   });

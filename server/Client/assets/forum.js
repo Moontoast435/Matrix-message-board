@@ -188,14 +188,8 @@ function getMessages() {
         });
 
         post.appendChild(deleteBtn);
-<<<<<<< HEAD
-      })
-    }
-    )
-=======
       });
     })
->>>>>>> 5561f324e47252e686ac922700776421580370de
     .catch(console.warn);
 }
 

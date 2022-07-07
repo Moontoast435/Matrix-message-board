@@ -246,12 +246,48 @@ canvas {
 
 .modal {
   max-width: 50ch;
-  background-color: rgb(46, 46, 46);
+  background-color: rgba(0, 0, 0, 0.5);
   color: rgb(155, 255, 210);
   overflow: auto;
   margin-left: auto;
   margin-right: auto;
   top: 180px;
+  border-radius: 30px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid rgb(3, 180, 155);
+}
+
+.gif__box {
+  list-style: none;
+}
+
+#gifSearch {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: rgb(155, 255, 210);
+  width: 100px;
+  height: 25px;
+  font-weight: 900;
+}
+
+#gifSearchButton {
+  background-color: rgba(3, 180, 155, 0.6);
+  border: none;
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+  width: 60px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-left: 20px;
+}
+
+#gifSearchButton:hover {
+  background-color: rgba(46, 46, 46, 0.6);
+  color: rgb(155, 255, 210);
 }
 
 .modal::backdrop {
@@ -265,8 +301,8 @@ canvas {
   font-weight: 900;
   border-radius: 30px;
   width: 60px;
-  height: 40px;
-  margin-top: 10px;
+  height: 25px;
+  margin: 10px
 }
 
 .button:hover {
@@ -494,57 +530,6 @@ canvas {
   color: rgb(155, 255, 210);
 }
 
-/* Gifs */
-
-/* .gif-container {
-  position: absolute;
-  margin: 5px auto;
-  max-width: 200px;
-  max-height: 180px;
-  box-shadow: 0px 25px 30px -20px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  background-color: rgba(46, 46, 46, 0.6);
-  overflow: hidden;
-}
-
-.gif__header {
-  padding: 3px 1px;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-  overflow: hidden;
-  background-color: rgba(3, 180, 155, 0.6);
-  color: rgb(155, 255, 210);
-}
-
-.gif__grid {
-  padding: 1px;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  color: rgb(193, 240, 213);
-  font-size: 15px;
-}
-
-.gif__grid .grid__item {
-  display: inline-block;
-  margin: 2px auto;
-  padding: 2px;
-  width: 30px;
-  height: 20px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-position: center;
-  background-size: cover;
-  margin-bottom: 1px;
-  transition: transform 200ms ease-in-out;
-}
-
-.grid__item:hover {
-  transform: translateX(10px) rotate(10deg) translateY(2px);
-} */
-
-
 /* Widgets */
 
 .widget-container {
@@ -637,5 +622,17 @@ canvas {
   .feed-container {
     flex: 1;
     border-left: 1px solid rgb(3, 180, 155);
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .reactcontainer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .comment_button, .delete_button {
+    display: none;
   }
 }

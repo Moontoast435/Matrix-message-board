@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="stylesheet" href="assets/forumstyles.css" />
+    <script defer src="assets/forum.js"></script>
+    <script defer src="assets/forumCanvas.js"></script>
+    <script defer src="assets/app.js"></script>
+    <title>Matrix Media</title>
+    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon1.png" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <a href="index.html"><img class="hackerIcon" src="assets/imgs/favicon1.png" /></a>
+                <br />
+                <br />
+                <div class="sidebarOption active">
+                    <span id="icon1" class="material-icons"> home </span>
+                    <h2 id="sidebarH2_1">Home</h2>
+                </div>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton1" class="sidebarOption">
+                        <span id="icon2" class="material-icons"> search </span>
+                        <h2 id="sidebarH2_2">Explore</h2>
+                    </div>
+                </a>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton2" class="sidebarOption">
+                        <span id="icon3" class="material-icons"> notifications </span>
+                        <h2 id="sidebarH2_3">Notifications</h2>
+                    </div>
+                </a>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton3" class="sidebarOption">
+                        <span id="icon4" class="material-icons"> mail </span>
+                        <h2 id="sidebarH2_4">Messages</h2>
+                    </div>
+                </a>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton4" class="sidebarOption">
+                        <span id="icon5" class="material-icons"> bookmarks </span>
+                        <h2 id="sidebarH2_5">Bookmarks</h2>
+                    </div>
+                </a>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton5" class="sidebarOption">
+                        <span id="icon6" class="material-icons"> list_alt </span>
+                        <h2 id="sidebarH2_6">Lists</h2>
+                    </div>
+                </a>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton6" class="sidebarOption">
+                        <span id="icon7" class="material-icons"> person </span>
+                        <h2 id="sidebarH2_7">Profile</h2>
+                    </div>
+                </a>
+                <br />
+                <a class="sidebarButtonLinks" href="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+                    <div id="sidebarButton7" class="sidebarOption">
+                        <span id="icon8" class="material-icons"> more_horiz </span>
+                        <h2 id="sidebarH2_8">More</h2>
+                    </div>
+                </a>
+                <button class="sidebar__hack">Hack The Mainframe</button>
+            </div>
+        </div>
+        <!-- Feed -->
+        <div class="feed-container">
+            <div class="feed">
+                <div class="feed__header">
+                    <h2 id="feedH2">Home</h2>
+                </div>
+
+                <!-- Comment Box -->
+                <div class="commentBox">
+                    <form id="commentBoxForm">
+                        <div class="commentBox__input">
+                            <img src="assets/imgs/hackerprofile.png" alt="Profile Icon" />
+                            <input name="postBodyContent" id="feedInput" type="text"
+                                placeholder="*furious hacker typing noises*" autocomplete="off" maxlength="500" />
+                        </div>
+                        <!-- GIF Start -->
+                        <div class="gif-and-submit">
+                            <!-- GIF Button -->
+                                <button name="gifButton" id="addGifBtn" class="button open-button">GIFs</button>
+                            <dialog class="modal" id="modal">
+                            <ul class="gif__box">
+                                <li>
+                                    <a class="gif__search" href="#">
+                                        <!-- GIF Search Bar -->
+                                        <div>
+                                            <form id="searchForm">
+                                                <div>
+                                                    <input type="search" name="search" id="gifSearch"
+                                                        placeholder="Search GIPHY" autocomplete="off">
+                                                    <button id="gifSearchButton">Search</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- GIF Rows -->
+                                <div class="">
+                                    <li>
+                                        <div class="grid__item1">1</div>
+                                    </li>
+                                    <li>
+                                        <div class="grid__item1">2</div>
+                                    </li>
+                                    <li>
+                                        <div class="grid__item1">3</div>
+                                    </li>
+                                    <li>
+                                        <div class="grid__item1">4</div>
+                                    </li>
+                                    <li>
+                                        <div class="grid__item1">5</div>
+                                    </li>
+                                    <li>
+                                        <div class="grid__item1">6</div>
+                                    </li>
+                                </div>
+                                <button class="button close-button">Exit</button>
+                            </ul>
+                        </dialog>
+                            <!-- GIF End -->
+                            <button name="submitCommentBox" id="commentBox__commentButton">
+                                Hack The Mainframe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Posts -->
+                <div id="post-container">
+                    <div id="comments_box">
+                        <div id="post_reference">
+                          <div id="post">
+                            <div class="post__avatar">
+                              <img src="assets/imgs/hackerprofile.png" alt="Profile Icon" />
+                            </div>
+                            <div class="post__body">
+                              <div class="post__header">
+                                <div class="post__headerText">
+                                  <h3>
+                                    <span class="post__headerName">Anonymous</span
+                                    ><span class="material-icons post__badge">check_circle</span
+                                    ><span class="post__headerSpecial">@anonymous</span>
+                                  </h3>
+                                </div>
+                                <div class="post__headerDescription">
+                                  <p class="latestPostsOutput"></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="comments_boxHeader">
+                          <input
+                            type="text"
+                            placeholder="Enter Your Comment"
+                            id="input_commentBox"
+                          />
+                          <button id="submit_comment">Submit</button>
+                        </div>
+                        <div id="comments_content"></div>
+                        <button id="commentsBox_close">Close</button>
+                      </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Widgets -->
+        <div class="widget-container">
+            <div class="widgets">
+                <div class="widgets__input">
+                    <span class="material-icons widgets__searchIcon"> search </span>
+                    <input id="widgetsInput" type="text" placeholder="Whats happening with the normies?"
+                        autocomplete="off" maxlength="500" />
+                </div>
+                <div class="widgets__widgetContainer">
+                    <h2 id="widgetsH2">( ͡° ͜ʖ ͡°)</h2>
+                    <a id="liveTwitter" class="twitter-timeline" data-theme="dark"
+                        href="https://twitter.com/TheHackersNews?ref_src=twsrc%5Etfw">Tweets by TheHackersNews</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas></canvas>
+</body>
+
+</html>

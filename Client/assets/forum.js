@@ -242,19 +242,6 @@ closeModal.addEventListener("click", (e) => {
   modal.close();
 });
 
-
-
-/*function appendResults(data) {
-  data.forEach((r) => {
-    postResults.append(makeMessage(r.message));
-  });
-}
-
-function makeMessage(msg) {
-  const message = document.createElement("h3");
-  message.textContent = `${msg}`;
-  return message;
-} */
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 

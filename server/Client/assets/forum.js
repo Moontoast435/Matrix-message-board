@@ -203,6 +203,7 @@ function getComments(url) {
       data.forEach((result) => {
         let comment = result.comment;
         let post = document.createElement("div");
+        post.classList = "post";
         post.id = "comment_holder"; // post container
         let postAvatar = document.createElement("div"); //div for the avatar
         postAvatar.classList = "post__avatar";

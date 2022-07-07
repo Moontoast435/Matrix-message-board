@@ -245,7 +245,7 @@ function getComments(url) {
         commentsContainer.appendChild(post);
         let commentSubmitBtn = document.getElementById("submit_comment");
         commentSubmitBtn.addEventListener("click", () => {
-          fetch();
+          console.log(url);
         });
       })
     )

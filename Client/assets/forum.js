@@ -176,7 +176,7 @@ function getMessages() {
         commentBtn.textContent = "COMMENT";
         post.appendChild(commentBtn);
         commentBtn.addEventListener("click", () => {
-          getComments(API_URL + "/" + msgId + "/comments");
+          getComments(API_URL + "/" + msgId + "/comments", msgId);
         });
 
         let commentSubmitBtn = document.getElementById("submit_comment");
@@ -185,7 +185,7 @@ function getMessages() {
           let commentBoxValue =
             document.getElementById("input_commentBox").value;
 
-          fetch(API_URL + +"/comments", {
+          fetch(API_URL + "/" + msgId + "/comments", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
@@ -193,12 +193,13 @@ function getMessages() {
             body: new URLSearchParams({
               comment: commentBoxValue, // takes the input value and passes it to the message parameter to be posted to the API
             }),
-          });
-          // .then((res) => {
-          // window.location.reload();
-          //  })
-          // .catch(console.warn);
+          })
+            .then((res) => {
+              window.location.reload();
+            })
+            .catch(console.warn);
         });
+
         let deleteBtn = document.createElement("button");
         deleteBtn.classList = "delete_button";
         deleteBtn.textContent = "DELETE";
@@ -216,11 +217,21 @@ function getMessages() {
 function getComments(url) {
   let commentsBox = document.getElementById("comments_box");
   commentsBox.style.display = "flex";
+
+  let commentsContainer = document.getElementById("comments_content");
+
+  let closeButton = document.getElementById("commentsBox_close");
+  closeButton.addEventListener("click", () => {
+    commentsBox.style.display = "none";
+  });
+
   fetch(url)
     .then((resp) => resp.json())
+    .then((commentsContainer.textContent = ""))
     .then((data) =>
       data.forEach((result) => {
         let comment = result.comment;
+
         let post = document.createElement("div");
         post.classList = "post";
         post.id = "comment_holder"; // post container
@@ -262,30 +273,10 @@ function getComments(url) {
         postHeader.appendChild(postHeaderDescription);
         postContainer.appendChild(post);
         postResults.textContent = comment;
-        let commentsContainer = document.getElementById("comments_content");
         commentsContainer.appendChild(post);
       })
     );
 }
-let commentSubmitBtn = document.getElementById("submit_comment");
-
-commentSubmitBtn.addEventListener("click", () => {
-  let commentBoxValue = document.getElementById("input_commentBox").value;
-
-  fetch(API_URL + +"/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-    },
-    body: new URLSearchParams({
-      comment: commentBoxValue, // takes the input value and passes it to the message parameter to be posted to the API
-    }),
-  });
-  // .then((res) => {
-  // window.location.reload();
-  //  })
-  // .catch(console.warn);
-});
 
 async function deletePost(url) {
   try {

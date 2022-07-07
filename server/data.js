@@ -2,7 +2,7 @@ const messages = [
   {
     message_id: 1,
     message: "example message",
-    gif: { gifResult },
+    gif: { gifResult: "" },
     comments: [
       { comment: "example comment" },
       { comment: "example comment" },

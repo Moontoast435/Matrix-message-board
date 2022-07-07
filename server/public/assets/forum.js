@@ -4,11 +4,10 @@ document.querySelector(".grid-items").addEventListener('click', (e) => {
   document.querySelector(".gifResult").src = e.target.currentSrc;
 }, false);
 
-const gifResult = document.querySelector(".gifResult").src;
-
 function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
   const commentBoxData = document.getElementById("feedInput").value; // targets the input box and takes its value to be stored in commentBoxData
+  const gifResult = document.querySelector(".gifResult").src;
   if (commentBoxData.trim()) {
     fetch(API_URL, {
       method: "POST",
@@ -17,6 +16,7 @@ function postMessage(e) {
       },
       body: new URLSearchParams({
         message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
+        gif: gifResult,
       }),
     })
       .then((res) => {
@@ -92,6 +92,12 @@ function getMessages() {
 
         message.classList = msgId; // assigning each message its ID
         postResults.textContent = message; //appending the message to the final div inside the post to display
+
+        let gif = document.createElement("img");
+        gif.setAttribute("class", "gifResult");
+        gif.setAttribute("src", `${result.gif}`);
+        post.append(gif);
+        console.log(result.gif);
 
         let kekReact = document.createElement("div"); // Create a container for the emoji button and the counter
         let kekButton = document.createElement("img"); // Create new img element in HTML

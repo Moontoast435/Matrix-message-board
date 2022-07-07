@@ -9,7 +9,7 @@ const messages = [
       { comment: "example comment" },
     ],
     react: [{ kek: 0 }, { kappa: 0 }, { pepeHands: 0 }],
-  },
+  }
 ];
 
 module.exports = messages;

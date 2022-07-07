@@ -268,7 +268,7 @@ async function deletePost(url) {
   }
 }
 
-// Show GIFs
+// Show GIFs Box
 
 const modal = document.querySelector("#modal");
 const openModal = document.querySelector(".open-button");

@@ -188,9 +188,14 @@ function getMessages() {
         });
 
         post.appendChild(deleteBtn);
+<<<<<<< HEAD
       })
     }
     )
+=======
+      });
+    })
+>>>>>>> 5561f324e47252e686ac922700776421580370de
     .catch(console.warn);
 }
 
@@ -246,7 +251,7 @@ function getComments(url) {
         commentsContainer.appendChild(post);
         let commentSubmitBtn = document.getElementById("submit_comment");
         commentSubmitBtn.addEventListener("click", () => {
-          postComment(url);
+          console.log(url);
         });
       })
     )

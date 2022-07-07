@@ -692,7 +692,7 @@ canvas {
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 400px) {
 
   .gifResult {
     max-width: 80px;

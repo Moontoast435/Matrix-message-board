@@ -88,7 +88,7 @@
                 <!-- Comment Box -->
                 <div class="commentBox">
                     <form id="commentBoxForm">
-                        <div class="commentBox__input">
+                        <div class="commentBox__input" contenteditable="yes">
                             <img src="assets/imgs/hackerprofile.png" alt="Profile Icon" />
                             <input name="postBodyContent" id="feedInput" type="text"
                                 placeholder="*furious hacker typing noises*" autocomplete="off" maxlength="500" />
@@ -98,44 +98,35 @@
                             <!-- GIF Button -->
                             <button name="gifButton" id="addGifBtn" class="button open-button">GIFs</button>
                             <dialog class="modal" id="modal">
-                                <ul class="gif__box">
-                                    <li>
-                                        <a class="gif__search" href="#">
-                                            <!-- GIF Search Bar -->
-                                            <div>
-                                                <form id="searchForm">
-                                                    <div>
-                                                        <input type="search" name="search" id="gifSearch"
-                                                            placeholder="Search GIPHY" autocomplete="off">
-                                                        <button id="gifSearchButton">Search</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </a>
-                                    </li>
+                                <div class="gif__box">
+                                    <a class="gif__search" href="#">
+                                        <!-- GIF Search Bar -->
+                                        <div>
+                                            <form id="searchForm">
+                                                <div>
+                                                    <input type="search" name="search" id="gifSearch"
+                                                        placeholder="Search GIPHY" autocomplete="off">
+                                                    <button id="gifSearchButton">Search</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </a>
                                     <!-- GIF Rows -->
-                                    <div class="">
-                                        <li>
-                                            <div class="grid__item1">1</div>
-                                        </li>
-                                        <li>
-                                            <div class="grid__item1">2</div>
-                                        </li>
-                                        <li>
-                                            <div class="grid__item1">3</div>
-                                        </li>
-                                        <li>
-                                            <div class="grid__item1">4</div>
-                                        </li>
-                                        <li>
-                                            <div class="grid__item1">5</div>
-                                        </li>
-                                        <li>
-                                            <div class="grid__item1">6</div>
-                                        </li>
+                                    <div class="grid-items">
+                                        <div class="grid-items-first">
+                                            <div class="grid__item1"></div>
+                                            <div class="grid__item2"></div>
+                                            <div class="grid__item3"></div>
+                                        </div>
+                                        <div class="grid-items-second">
+                                            <div class="grid__item4"></div>
+                                            <div class="grid__item5"></div>
+                                            <div class="grid__item6"></div>
+                                        </div>
+
                                     </div>
                                     <button class="button close-button">Exit</button>
-                                </ul>
+                                </div>
                             </dialog>
                             <!-- GIF End -->
                             <button name="submitCommentBox" id="commentBox__commentButton">

@@ -176,7 +176,7 @@ function getMessages() {
         commentBtn.textContent = "COMMENT";
         post.appendChild(commentBtn);
         commentBtn.addEventListener("click", () => {
-          getComments(API_URL + "/" + msgId + "/comments");
+          getComments(API_URL + "/" + msgId + "/comments", msgId);
         });
 
         let commentSubmitBtn = document.getElementById("submit_comment");
@@ -185,7 +185,7 @@ function getMessages() {
           let commentBoxValue =
             document.getElementById("input_commentBox").value;
 
-          fetch(API_URL + +"/comments", {
+          fetch(API_URL + "/" + msgId + "/comments", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
@@ -193,12 +193,13 @@ function getMessages() {
             body: new URLSearchParams({
               comment: commentBoxValue, // takes the input value and passes it to the message parameter to be posted to the API
             }),
-          });
-          // .then((res) => {
-          // window.location.reload();
-          //  })
-          // .catch(console.warn);
+          })
+            .then((res) => {
+              window.location.reload();
+            })
+            .catch(console.warn);
         });
+
         let deleteBtn = document.createElement("button");
         deleteBtn.classList = "delete_button";
         deleteBtn.textContent = "DELETE";
@@ -216,11 +217,21 @@ function getMessages() {
 function getComments(url) {
   let commentsBox = document.getElementById("comments_box");
   commentsBox.style.display = "flex";
+
+  let commentsContainer = document.getElementById("comments_content");
+
+  let closeButton = document.getElementById("commentsBox_close");
+  closeButton.addEventListener("click", () => {
+    commentsBox.style.display = "none";
+  });
+
   fetch(url)
     .then((resp) => resp.json())
+    .then((commentsContainer.textContent = ""))
     .then((data) =>
       data.forEach((result) => {
         let comment = result.comment;
+
         let post = document.createElement("div");
         post.classList = "post";
         post.id = "comment_holder"; // post container
@@ -262,30 +273,10 @@ function getComments(url) {
         postHeader.appendChild(postHeaderDescription);
         postContainer.appendChild(post);
         postResults.textContent = comment;
-        let commentsContainer = document.getElementById("comments_content");
         commentsContainer.appendChild(post);
       })
     );
 }
-let commentSubmitBtn = document.getElementById("submit_comment");
-
-commentSubmitBtn.addEventListener("click", () => {
-  let commentBoxValue = document.getElementById("input_commentBox").value;
-
-  fetch(API_URL + +"/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-    },
-    body: new URLSearchParams({
-      comment: commentBoxValue, // takes the input value and passes it to the message parameter to be posted to the API
-    }),
-  });
-  // .then((res) => {
-  // window.location.reload();
-  //  })
-  // .catch(console.warn);
-});
 
 async function deletePost(url) {
   try {
@@ -317,34 +308,65 @@ closeModal.addEventListener("click", (e) => {
   modal.close();
 });
 
-// // Giphy API key
-// let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
+// Giphy API key
 
-// // linking Giphy API to DOM
+const APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
+document.addEventListener("DOMContentLoaded", init);
+function init() {
+  document.getElementById("gifSearchButton").addEventListener("click", (ev) => {
+    ev.preventDefault();
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=6&q=`;
+    let str = document.getElementById("gifSearch").value.trim();
+    url = url.concat(str);
+    console.log(url);
+    fetch(url)
+      .then((response) => response.json())
+      .then((content) => {
+        console.log(content.data);
+        console.log("Meta", content.meta);
 
-// document.addEventListener("DOMContentLoaded", init);
-// function init() {
-//   document
-//     .getElementById("gif-search-button") //placeholder ID used, change to whatever the gif search button is
-//     .addEventListener("click", (e) => {
-//       e.preventDefault();
-//       let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=10&g=`;
-//       let str = document.getElementById("search").value.trim();
-//       url = url.concat(str); // adds search query onto the url before fetching it
-//       fetch(url)
-//         .then((res) => res.json())
-//         .then((content) => {
-//           console.log(content.data); //contains all the GIF data
-//           console.log("META", content.meta); // the meta just tells us if the query was successful or not
-//           let gifSelection = document.createElement("div");
-//           content.data.forEach((gif) => {
-//             let img = document.createElement("img");
-//             img.src = gif.images.downsized.url;
-//             gifSelection.appendChild(imgSrc); // This **should** create a menu which displays all of the GIFs you searched for
-//           });
-//         });
-//     });
-// }
+        let gifImg1 = document.createElement("img");
+        gifImg1.src = content.data[0].images.fixed_width_small.url;
+        gifImg1.alt = content.data[0].title;
+        let out1 = document.querySelector(".grid__item1");
+
+        let gifImg2 = document.createElement("img");
+        gifImg2.src = content.data[1].images.fixed_width_small.url;
+        gifImg2.alt = content.data[1].title;
+        let out2 = document.querySelector(".grid__item2");
+
+        let gifImg3 = document.createElement("img");
+        gifImg3.src = content.data[2].images.fixed_width_small.url;
+        gifImg3.alt = content.data[2].title;
+        let out3 = document.querySelector(".grid__item3");
+
+        let gifImg4 = document.createElement("img");
+        gifImg4.src = content.data[3].images.fixed_width_small.url;
+        gifImg4.alt = content.data[3].title;
+        let out4 = document.querySelector(".grid__item4");
+
+        let gifImg5 = document.createElement("img");
+        gifImg5.src = content.data[4].images.fixed_width_small.url;
+        gifImg5.alt = content.data[4].title;
+        let out5 = document.querySelector(".grid__item5");
+
+        let gifImg6 = document.createElement("img");
+        gifImg6.src = content.data[5].images.fixed_width_small.url;
+        gifImg6.alt = content.data[5].title;
+        let out6 = document.querySelector(".grid__item6");
+        
+        out1.appendChild(gifImg1);
+        out2.appendChild(gifImg2);
+        out3.appendChild(gifImg3);
+        out4.appendChild(gifImg4);
+        out5.appendChild(gifImg5);
+        out6.appendChild(gifImg6);
+      })
+      .catch((err) => {
+        console.error("This didn't work.");
+      });
+  });
+}
 
 module.exports = {
   getMessages,

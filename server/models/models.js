@@ -52,7 +52,7 @@ class Message {
     const newMsg = new Message({
       message_id: newMsgId,
       ...message,
-      gif: { gifResult },
+      gif: "",
       comments: [],
       react: [{ kek: 0 }, { kappa: 0 }, { pepeHands: 0 }],
       ...message,

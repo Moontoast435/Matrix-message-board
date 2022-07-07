@@ -524,4 +524,6 @@ module.exports = {
   getMessages,
   deletePost,
   postMessage,
+  appendMessages,
+  appendMessage
 };

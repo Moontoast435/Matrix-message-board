@@ -12,10 +12,10 @@ function postMessage(e) {
       message: commentBoxData, // takes the input value and passes it to the message parameter to be posted to the API
     }),
   })
-    .then(res => {
-      window.location.reload()
+    .then((res) => {
+      window.location.reload();
     })
-    .catch(console.warn)
+    .catch(console.warn);
 }
 
 let postContainer = document.getElementById("post-container");
@@ -84,49 +84,87 @@ function getMessages() {
         message.classList = msgId; // assigning each message its ID
         postResults.textContent = message; //appending the message to the final div inside the post to display
 
-        let kekReact = document.createElement('div'); // Create a container for the emoji button and the counter
-        let kekButton = document.createElement('img'); // Create new img element in HTML
-        let kekCount = document.createElement('p'); // Create a p element for the counter
+        let kekReact = document.createElement("div"); // Create a container for the emoji button and the counter
+        let kekButton = document.createElement("img"); // Create new img element in HTML
+        let kekCount = document.createElement("p"); // Create a p element for the counter
         kekReact.setAttribute("class", "reactcontainer");
-        kekButton.src = './assets/imgs/kekw.jpg'; // Insert the path to the image file
-        kekButton.alt = 'Kekw Emoji';
+        kekReact.id = "kek";
+        kekButton.src = "./assets/imgs/kekw.jpg"; // Insert the path to the image file
+        kekButton.alt = "Kekw Emoji";
         kekButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
         kekCount.textContent = result.react[0].kek; // Sets the number of times the emoji has been clicked
         kekCount.setAttribute("class", "emojicounter");
         kekReact.append(kekButton, kekCount);
         post.append(kekReact);
         kekButton.addEventListener("click", () => {
-          
+          fetch(API_URL + "/" + msgId + "/reacts", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              kek: "",
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
+            })
+            .catch(console.warn);
         });
 
-        let kappaReact = document.createElement('div'); // Create a container for the emoji button and the counter
-        let kappaButton = document.createElement('img'); // Create new img element in HTML
-        let kappaCount = document.createElement('p'); // Create a p element for the counter
+        let kappaReact = document.createElement("div"); // Create a container for the emoji button and the counter
+        let kappaButton = document.createElement("img"); // Create new img element in HTML
+        let kappaCount = document.createElement("p"); // Create a p element for the counter
         kappaReact.setAttribute("class", "reactcontainer");
-        kappaButton.src = './assets/imgs/kappa.png'; // Insert the path to the image file
-        kappaButton.alt = 'Kappa Emoji';
-        kappaButton.setAttribute("class", "emojibutton",); // Set attributes like id, class, name, etc here.
+        kappaButton.src = "./assets/imgs/kappa.png"; // Insert the path to the image file
+        kappaButton.alt = "Kappa Emoji";
+        kappaButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
         kappaCount.textContent = result.react[1].kappa; // Sets the number of times the emoji has been clicked
         kappaCount.setAttribute("class", "emojicounter");
         kappaReact.append(kappaButton, kappaCount);
         post.append(kappaReact);
         kappaButton.addEventListener("click", () => {
-          
+          fetch(API_URL + "/" + msgId + "/reacts", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              kappa: "",
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
+            })
+            .catch(console.warn);
         });
 
-        let pepeHandsReact = document.createElement('div'); // Create a container for the emoji button and the counter
-        let pepeHandsButton = document.createElement('img'); // Create new img element in HTML
-        let pepeHandsCount = document.createElement('p'); // Create a p element for the counter
+        let pepeHandsReact = document.createElement("div"); // Create a container for the emoji button and the counter
+        let pepeHandsButton = document.createElement("img"); // Create new img element in HTML
+        let pepeHandsCount = document.createElement("p"); // Create a p element for the counter
         pepeHandsReact.setAttribute("class", "reactcontainer");
-        pepeHandsButton.src = './assets/imgs/pepehands.png'; // Insert the path to the image file
-        pepeHandsButton.alt = 'PepeHands Emoji';
+        pepeHandsReact.id = "pepeHands";
+        pepeHandsButton.src = "./assets/imgs/pepehands.png"; // Insert the path to the image file
+        pepeHandsButton.alt = "PepeHands Emoji";
         pepeHandsButton.setAttribute("class", "emojibutton"); // Set attributes like id, class, name, etc here.
         pepeHandsCount.textContent = result.react[2].pepeHands; // Sets the number of times the emoji has been clicked
         pepeHandsCount.setAttribute("class", "emojicounter");
         pepeHandsReact.append(pepeHandsButton, pepeHandsCount);
         post.append(pepeHandsReact);
         pepeHandsButton.addEventListener("click", () => {
-          
+          fetch(API_URL + "/" + msgId + "/reacts", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              pepeHands: "",
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
+            })
+            .catch(console.warn);
         });
 
         let commentBtn = document.createElement("button");
@@ -149,8 +187,7 @@ function getMessages() {
         post.appendChild(deleteBtn);
       })
     )
-    .catch
-    (console.warn)
+    .catch(console.warn);
 }
 
 function getComments(url) {
@@ -222,7 +259,7 @@ async function deletePost(url) {
     });
     window.location.reload();
   } catch {
-    (console.warn)
+    console.warn;
   }
 }
 
@@ -242,6 +279,17 @@ closeModal.addEventListener("click", (e) => {
   modal.close();
 });
 
+/*function appendResults(data) {
+  data.forEach((r) => {
+    postResults.append(makeMessage(r.message));
+  });
+}
+
+function makeMessage(msg) {
+  const message = document.createElement("h3");
+  message.textContent = `${msg}`;
+  return message;
+} */
 // // Giphy API key
 // let APIKEY = "bsmGT5Kv6ZHaU7EQ6wHi6rbj174B65M2";
 
@@ -271,10 +319,8 @@ closeModal.addEventListener("click", (e) => {
 //     });
 // }
 
-
-
 module.exports = {
   getMessages,
   deletePost,
-  postMessage
-}
+  postMessage,
+};

@@ -228,6 +228,10 @@ canvas {
 
 /* GIF */
 
+.gifResult {
+  border-radius: 10px;
+}
+
 #addGifBtn {
   background-color: rgba(3, 180, 155, 0.6);
   border: none;

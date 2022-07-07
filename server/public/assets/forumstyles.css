@@ -691,3 +691,10 @@ canvas {
     display: none;
   }
 }
+
+@media only screen and (max-width: 375px) {
+
+  .gifResult {
+    max-width: 80px;
+  }
+}

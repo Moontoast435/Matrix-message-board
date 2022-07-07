@@ -8,14 +8,17 @@ const msgRoutes = require("./controllers/routes");
 
 app.use(cors("*"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+app.use(express.static(path.join(__dirname)));
+app.use("/assets", express.static(__dirname + "Client/assets"));
+app.use("/imgs", express.static(__dirname + "assets/imgs"));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname + "Client/index.html"));
+});
 
+app.get("/forum", function (req, res) {
+  res.sendFile(path.join(__dirname + "Client/forum.html"));
+});
 app.use("/messages", msgRoutes);
 app.use(bodyParser.json());
 

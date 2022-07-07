@@ -41,6 +41,13 @@ router.get("/:id/reacts", (req, res) => {
   res.send(selectReacts);
 });
 
+router.get("/:id/gif"),
+  (req, res) => {
+    const msgId = parseInt(req.params.id);
+    const selectGif = Message.findGif(msgId);
+    res.send(selectGif);
+  };
+
 // POST methods
 
 router.post("/", (req, res) => {
@@ -56,6 +63,15 @@ router.post("/:id/comments", (req, res) => {
   selectedComments.push(data);
   res.send(selectedComments);
 });
+
+router.patch("/:id/gif"),
+  (req, res) => {
+    const data = req.body;
+    const msgId = parseInt(req.params.id);
+    const selectGifs = Message.findGif(msgId);
+    selectGifs.push(data);
+    res.send(selectGifs);
+  };
 // PATCH method
 
 router.patch("/:id/reacts", (req, res) => {

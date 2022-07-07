@@ -624,3 +624,15 @@ canvas {
     border-left: 1px solid rgb(3, 180, 155);
   }
 }
+
+@media only screen and (max-width: 890px) {
+  .reactcontainer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .comment_button, .delete_button {
+    display: none;
+  }
+}

@@ -9,8 +9,8 @@ const msgRoutes = require("./controllers/routes");
 app.use(cors("*"));
 
 app.use(express.static("./Client"));
-app.use("/assets", express.static(+"assets"));
-app.use("/imgs", express.static(+"assets/imgs"));
+app.use("/assets", express.static("./Client/assets"));
+app.use("/imgs", express.static("./Client/assets/imgs"));
 
 app.get("/", function (req, res) {
   res.sendFile(path.resolve("./Client/index.html"));

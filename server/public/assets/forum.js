@@ -1,5 +1,7 @@
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
+
+
 function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
   const commentBoxData = document.getElementById("feedInput").value; // targets the input box and takes its value to be stored in commentBoxData
@@ -86,6 +88,14 @@ function getMessages() {
 
         message.classList = msgId; // assigning each message its ID
         postResults.textContent = message; //appending the message to the final div inside the post to display
+
+        document.querySelector(".grid-items").addEventListener('click', (e) => {
+          document.querySelector(".gifResult").src = e.target.currentSrc;
+          console.log(src = e.target.currentSrc);
+          gifResult1.setAttribute("class", "gifResult");
+        
+          post.append(gifResult1);
+        }, false);
 
         let kekReact = document.createElement("div"); // Create a container for the emoji button and the counter
         let kekButton = document.createElement("img"); // Create new img element in HTML

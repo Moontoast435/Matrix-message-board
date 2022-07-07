@@ -1,6 +1,10 @@
 const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
 
+document.querySelector(".grid-items").addEventListener('click', (e) => {
+  document.querySelector(".gifResult").src = e.target.currentSrc;
+}, false);
 
+const gifResult = document.querySelector(".gifResult").src;
 
 function postMessage(e) {
   e.preventDefault(); // prevents page reload before the function can be carried out
@@ -88,14 +92,6 @@ function getMessages() {
 
         message.classList = msgId; // assigning each message its ID
         postResults.textContent = message; //appending the message to the final div inside the post to display
-
-        document.querySelector(".grid-items").addEventListener('click', (e) => {
-          document.querySelector(".gifResult").src = e.target.currentSrc;
-          console.log(src = e.target.currentSrc);
-          gifResult1.setAttribute("class", "gifResult");
-        
-          post.append(gifResult1);
-        }, false);
 
         let kekReact = document.createElement("div"); // Create a container for the emoji button and the counter
         let kekButton = document.createElement("img"); // Create new img element in HTML

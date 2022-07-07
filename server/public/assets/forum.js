@@ -188,6 +188,25 @@ function getMessages() {
         commentBtn.addEventListener("click", () => {
           getComments(API_URL + "/" + msgId + "/comments", msgId);
         });
+        let commentSubmitBtn = document.getElementById("submit_comment");
+
+        commentSubmitBtn.addEventListener("click", () => {
+          let commentBoxValue =
+            document.getElementById("input_commentBox").value;
+          fetch(API_URL + "/" + msgId + "/comments", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
+            },
+            body: new URLSearchParams({
+              comment: commentBoxValue, // takes the input value and passes it to the message parameter to be posted to the API
+            }),
+          })
+            .then((res) => {
+              window.location.reload();
+            })
+            .catch(console.warn);
+        });
 
         let deleteBtn = document.createElement("button");
         deleteBtn.classList = "delete_button";
@@ -343,7 +362,7 @@ function init() {
         gifImg6.src = content.data[5].images.fixed_width_small.url;
         gifImg6.alt = content.data[5].title;
         let out6 = document.querySelector(".grid__item6");
-        
+
         out1.appendChild(gifImg1);
         out2.appendChild(gifImg2);
         out3.appendChild(gifImg3);

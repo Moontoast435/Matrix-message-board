@@ -179,27 +179,6 @@ function getMessages() {
           getComments(API_URL + "/" + msgId + "/comments", msgId);
         });
 
-        let commentSubmitBtn = document.getElementById("submit_comment");
-
-        commentSubmitBtn.addEventListener("click", () => {
-          let commentBoxValue =
-            document.getElementById("input_commentBox").value;
-
-          fetch(API_URL + "/" + msgId + "/comments", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded", // submits the data in urlencoded form
-            },
-            body: new URLSearchParams({
-              comment: commentBoxValue, // takes the input value and passes it to the message parameter to be posted to the API
-            }),
-          })
-            .then((res) => {
-              window.location.reload();
-            })
-            .catch(console.warn);
-        });
-
         let deleteBtn = document.createElement("button");
         deleteBtn.classList = "delete_button";
         deleteBtn.textContent = "DELETE";

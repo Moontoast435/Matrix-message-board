@@ -6,6 +6,8 @@ const messages = require("./data");
 const path = require("path");
 const msgRoutes = require("./controllers/routes");
 
+app.use(cors("*"));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -14,7 +16,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.use(cors("*"));
 app.use("/messages", msgRoutes);
 app.use(bodyParser.json());
 

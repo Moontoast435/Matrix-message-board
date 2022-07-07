@@ -96,47 +96,47 @@
                         <!-- GIF Start -->
                         <div class="gif-and-submit">
                             <!-- GIF Button -->
-                                <button name="gifButton" id="addGifBtn" class="button open-button">GIFs</button>
+                            <button name="gifButton" id="addGifBtn" class="button open-button">GIFs</button>
                             <dialog class="modal" id="modal">
-                            <ul class="gif__box">
-                                <li>
-                                    <a class="gif__search" href="#">
-                                        <!-- GIF Search Bar -->
-                                        <div>
-                                            <form id="searchForm">
-                                                <div>
-                                                    <input type="search" name="search" id="gifSearch"
-                                                        placeholder="Search GIPHY" autocomplete="off">
-                                                    <button id="gifSearchButton">Search</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!-- GIF Rows -->
-                                <div class="">
+                                <ul class="gif__box">
                                     <li>
-                                        <div class="grid__item1">1</div>
+                                        <a class="gif__search" href="#">
+                                            <!-- GIF Search Bar -->
+                                            <div>
+                                                <form id="searchForm">
+                                                    <div>
+                                                        <input type="search" name="search" id="gifSearch"
+                                                            placeholder="Search GIPHY" autocomplete="off">
+                                                        <button id="gifSearchButton">Search</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </a>
                                     </li>
-                                    <li>
-                                        <div class="grid__item1">2</div>
-                                    </li>
-                                    <li>
-                                        <div class="grid__item1">3</div>
-                                    </li>
-                                    <li>
-                                        <div class="grid__item1">4</div>
-                                    </li>
-                                    <li>
-                                        <div class="grid__item1">5</div>
-                                    </li>
-                                    <li>
-                                        <div class="grid__item1">6</div>
-                                    </li>
-                                </div>
-                                <button class="button close-button">Exit</button>
-                            </ul>
-                        </dialog>
+                                    <!-- GIF Rows -->
+                                    <div class="">
+                                        <li>
+                                            <div class="grid__item1">1</div>
+                                        </li>
+                                        <li>
+                                            <div class="grid__item1">2</div>
+                                        </li>
+                                        <li>
+                                            <div class="grid__item1">3</div>
+                                        </li>
+                                        <li>
+                                            <div class="grid__item1">4</div>
+                                        </li>
+                                        <li>
+                                            <div class="grid__item1">5</div>
+                                        </li>
+                                        <li>
+                                            <div class="grid__item1">6</div>
+                                        </li>
+                                    </div>
+                                    <button class="button close-button">Exit</button>
+                                </ul>
+                            </dialog>
                             <!-- GIF End -->
                             <button name="submitCommentBox" id="commentBox__commentButton">
                                 Hack The Mainframe
@@ -148,37 +148,33 @@
                 <div id="post-container">
                     <div id="comments_box">
                         <div id="post_reference">
-                          <div id="post">
-                            <div class="post__avatar">
-                              <img src="assets/imgs/hackerprofile.png" alt="Profile Icon" />
-                            </div>
-                            <div class="post__body">
-                              <div class="post__header">
-                                <div class="post__headerText">
-                                  <h3>
-                                    <span class="post__headerName">Anonymous</span
-                                    ><span class="material-icons post__badge">check_circle</span
-                                    ><span class="post__headerSpecial">@anonymous</span>
-                                  </h3>
+                            <div id="post">
+                                <div class="post__avatar">
+                                    <img src="assets/imgs/hackerprofile.png" alt="Profile Icon" />
                                 </div>
-                                <div class="post__headerDescription">
-                                  <p class="latestPostsOutput"></p>
+                                <div class="post__body">
+                                    <div class="post__header">
+                                        <div class="post__headerText">
+                                            <h3>
+                                                <span class="post__headerName">Anonymous</span><span
+                                                    class="material-icons post__badge">check_circle</span><span
+                                                    class="post__headerSpecial">@anonymous</span>
+                                            </h3>
+                                        </div>
+                                        <div class="post__headerDescription">
+                                            <p class="latestPostsOutput"></p>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
                         </div>
                         <div id="comments_boxHeader">
-                          <input
-                            type="text"
-                            placeholder="Enter Your Comment"
-                            id="input_commentBox"
-                          />
-                          <button id="submit_comment">Submit</button>
+                            <input type="text" placeholder="Enter Your Comment" id="input_commentBox" />
+                            <button id="submit_comment">Submit</button>
                         </div>
                         <div id="comments_content"></div>
                         <button id="commentsBox_close">Close</button>
-                      </div>
+                    </div>
                 </div>
             </div>
 

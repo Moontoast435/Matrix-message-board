@@ -35,7 +35,7 @@ function appendMessages(messages){
   messages.forEach(appendMessage);
 };
 
-function appendMessage(data){
+function appendMessage(result){
     let msgId = result.message_id; // this will just assign the post an ID, could be useful for deleting or changing specific posts
     let message = result.message; // transferring the message from the post to a variable
     let reacts = result.react; // reacts and comments arent being used yet but stored those properties into variables for later
@@ -511,21 +511,7 @@ async function deletePost(url) {
   }
 }
 
-// Show GIFs Box
 
-const modal = document.querySelector("#modal");
-const openModal = document.querySelector(".open-button");
-const closeModal = document.querySelector(".close-button");
-
-openModal.addEventListener("click", (e) => {
-  e.preventDefault();
-  modal.showModal();
-});
-
-closeModal.addEventListener("click", (e) => {
-  e.preventDefault();
-  modal.close();
-});
 
 // Giphy API key
 

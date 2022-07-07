@@ -268,6 +268,7 @@ canvas {
   height: 40px;
   margin-top: 10px;
 }
+
 .button:hover {
   background-color: rgba(46, 46, 46, 0.6);
   color: rgb(155, 255, 210);
@@ -288,6 +289,7 @@ canvas {
 .post {
   display: flex;
   align-items: flex-start;
+  flex-direction: row;
   border-bottom: 1px solid rgb(3, 180, 155);
   padding: 15px 20px;
   padding-bottom: 10px;
@@ -343,7 +345,9 @@ canvas {
 }
 
 .post__avatar {
-  padding: 20px;
+  padding: 10px;
+  max-width: 80px;
+  float: left;
 }
 
 .delete_button {
@@ -376,6 +380,7 @@ canvas {
   margin-right: 10px;
   padding: 5px;
 }
+
 .comment_button:hover {
   background-color: rgba(46, 46, 46, 0.6);
   color: rgb(155, 255, 210);
@@ -405,39 +410,68 @@ canvas {
   top: 300px;
   left: 500px;
   border: 1px solid rgb(3, 180, 155);
-  background-color: black;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+#comments_box::-webkit-scrollbar {
+  display: none;
+}
+
 #post_reference {
-  height: 100px;
+  height: 60px;
+  align-content: center;
+  margin-top: 10px;
+  margin-left: 10px;
 }
+
 #comments_boxHeader {
-  margin-top: 20px;
+  border-bottom: 1px solid rgb(3, 180, 155);
+  padding-bottom: 5px;
 }
+
 #input_commentBox {
-  width: 500px;
+  width: 450px;
   height: 50px;
-  background-color: black;
-  color: rgb(3, 180, 155);
+  background-color: transparent;
+  border: none;
+  margin-left: 23px;
+  outline: none;
+  color: rgb(155, 255, 210);
+  font-size: 19px;
 }
+
 #submit_comment {
   background-color: rgba(3, 180, 155, 0.6);
   border: none;
   color: rgb(0, 0, 0);
   font-weight: 900;
   border-radius: 30px;
-  width: 60px;
+  width: 70px;
   height: 30px;
   font-size: 14px;
+  margin-left: 20px;
 }
+
+#submit_comment:hover {
+  background-color: rgba(46, 46, 46, 0.6);
+  color: rgb(155, 255, 210);
+}
+
 #comments_content {
-  height: 550px;
+  height: 600px;
   width: 600px;
-  background-color: black;
+  background-color: transparent;
   overflow: auto;
 }
+
 #comment_holder {
   display: flex;
 }
+
 #commentsBox_close {
   display: flex;
   justify-content: center;
@@ -452,6 +486,12 @@ canvas {
   font-size: 10px;
   margin: 10px;
   padding: 5px;
+  font-size: 14px;
+}
+
+#commentsBox_close:hover {
+  background-color: rgba(46, 46, 46, 0.6);
+  color: rgb(155, 255, 210);
 }
 
 /* Gifs */

@@ -48,6 +48,13 @@ Then we needed to create the class from which messages could be created from aut
 
 ![image](https://user-images.githubusercontent.com/95479796/177959361-60b5fb99-41ac-48cd-9a7d-ade54b84d662.png)
 
+![image](https://user-images.githubusercontent.com/95479796/177959608-0b995bae-0f08-4410-a9a2-866d16f36ca9.png)
+
+The Message class template was modelled after an example message which is contained in data.js. 
+
+
+
+
 
 
 

@@ -7,13 +7,15 @@ to take them to our message board. The website is styled like the matrix , with 
 
 ## Installation & Usage 
 
-To simply view our app, visit https://evening-retreat-34987.herokuapp.com/
+To simply view our app, visit https://red-pill.onrender.com (Please allow up to 1 minute for Render to start the server up)
 
 App is deployed completely on heroku, with front-end and back-end.
 
 To install the app locally, clone this repo.
 
 On the terminal, run npm i to install the packages required.
+
+Cd into the server folder, and type npm start.
 
 On VSCODE or your preferred code editor, open index.html (located inside server folder) with a browser.
 

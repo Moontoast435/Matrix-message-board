@@ -1,4 +1,4 @@
-const API_URL = "https://evening-retreat-34987.herokuapp.com/messages";
+const API_URL = "https://red-pill.onrender.com/messages";
 
 document.querySelector(".grid-items").addEventListener('click', (e) => {
   document.querySelector(".gifResult").src = e.target.currentSrc;
